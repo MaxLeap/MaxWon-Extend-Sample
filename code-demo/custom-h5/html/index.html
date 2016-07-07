@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+<fieldset>
+    <h1>
+        会员信息
+    </h1>
+
+    <h3>用户昵称：<span id="nickname">-</span></h3>
+
+    <h3>当前积分：<span id="current-score">-</span></h3>
+
+    <h3>当前余额：<span id="current-balance">-</span></h3>
+    <input type="text" id="nickname-input" placeholder="填写要修改的昵称"/>
+    <button id="changeScore">修改</button>
+</fieldset>
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+        var appInfo = getUrlQueryInfo();
+        var memberId = appInfo.memId;
+        var nicknameTag = document.getElementById("nickname");
+        var currentScoreTag = document.getElementById("current-score");
+        var currentBalanceTag = document.getElementById("current-balance");
+        var changeScoreTag = document.getElementById("changeScore");
+        var nicknameInput = document.getElementById("nickname-input");
+
+        initApp();
+
+        //初始化页面
+        function initApp() {
+            if (judgeIsLogin()) {
+                bindChangeScoreEvent();
+                getMemberInfoAndRender();
+
+            }
+        }
+
+        //判断是否已经登录
+        function judgeIsLogin() {
+            if (appInfo && appInfo.memId && appInfo.sessionToken) {
+                return true;
+            } else {
+                alert("请先登录");
+                return false;
+            }
+        }
+
+        //获取会员信息并渲染页面
+        function getMemberInfoAndRender() {
+            ajaxGet("1.0/mems/" + memberId, {}, function (res) {
+                if (res) {
+                    nicknameTag.innerText = res.nickName;
+                    currentScoreTag.innerText = res.integral;
+                    currentBalanceTag.innerText = (res.balance / 100).toFixed(2);
+                }
+            }, function (err) {
+                alert("获取会员信息失败");
+            });
+        }
+
+        //绑定修改点击事件
+        function bindChangeScoreEvent() {
+            changeScoreTag.addEventListener("click", function (e) {
+                var value = nicknameInput.value.trim();
+
+                if (value !== '') {
+                    updateMemberInfo({
+                        nickName: value
+                    });
+                    nicknameInput.value = '';
+                }
+            });
+        }
+
+        //更新会员信息
+        function updateMemberInfo(info) {
+
+            ajaxPut("1.0/mems/" + memberId, info, function () {
+                alert("修改成功");
+                nicknameTag.innerText = info.nickName;
+            }, function () {
+                alert("修改失败");
+            })
+        }
+
+
+        //获取地址栏信息
+        function getUrlQueryInfo() {
+            var appId, appKey, sessionToken, memId;
+
+            appId = getQueryString("appId");
+            appKey = getQueryString("apiKey");
+            sessionToken = getQueryString("sessionToken");
+            memId = getQueryString("userid");
+
+            return {
+                appId: appId,
+                appKey: appKey,
+                sessionToken: sessionToken,
+                memId: memId
+            };
+
+            //获取地址栏参数
+            function getQueryString(name) {
+                var prefix = 'maxleap_';
+                name = prefix+name;
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", 'i');
+                var result = window.location.search.substr(1).match(reg);
+                if (result != null) {
+                    return unescape(result[2]);
+                }
+                return null;
+            }
+        }
+
+        //ajax请求
+        function ajax(url, data, callback, errorCallBack, type) {
+            var xhr;
+
+            type = type || 'get';
+            if (window.ActiveXObject) {// code for IE5 and IE6
+                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+            } else if (window.XMLHttpRequest) {
+                xhr = new XMLHttpRequest();
+            }
+            if (!xhr) {
+                return
+            }
+            xhr.onreadystatechange = function () {
+                //接受数据完毕
+                if (xhr.readyState === 4) {
+                    if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+                        if (xhr.responseText) {
+                            try {
+                                callback(JSON.parse(xhr.responseText));
+                                return;
+                            } catch (e) {
+                                errorCallBack(e);
+                            }
+                        }
+                        callback(xhr.responseText);
+                    } else {
+                        errorCallBack(xhr.responseText);
+                    }
+                }
+            }
+            //simple
+            //xhr.addEventListener("load", function () {
+            // debugger
+            //});
+            //xhr.addEventListener("error", function () {
+            //   debugger
+            //});
+            xhr.open(type, url);
+            xhr.setRequestHeader("X-ML-AppId", appInfo.appId);
+            xhr.setRequestHeader("X-ML-AppKey", appInfo.appKey);
+            xhr.setRequestHeader("X-ML-Session-Token", appInfo.sessionToken);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.send(JSON.stringify(data) || null);
+        }
+
+        //ajax get 请求
+        function ajaxGet(url, data, callback, errorCallBack) {
+            return ajax(url, data, callback, errorCallBack, 'get');
+        }
+
+        //ajax put 请求
+        function ajaxPut(url, data, callback, errorCallBack) {
+            return ajax(url, data, callback, errorCallBack, 'put');
+        }
+    }
+</script>
+
+</html>
