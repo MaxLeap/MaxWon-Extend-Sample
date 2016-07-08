@@ -108,7 +108,8 @@ function updateMemberInfo(info) {
 
 ### STEP 1:
 注册并登录 MaxLeap 平台,创建一个应用,进入【应用设置 -> 系统设置】,配置云容器二级域名并保存.  
-关于什么是云容器,[猛戳这里](https://maxleap.cn/s/web/zh_cn/guide/usermanual/cloudContainer.html). 
+
+关于什么是云容器,[猛戳这里](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/domain_config.png). 
 
 ![配置云容器主机子域名](https://static.maxleap.cn/s/web/zh_cn/images/LAS-Docs-Images/web_container1.png)
 
