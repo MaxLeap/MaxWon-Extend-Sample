@@ -1,6 +1,6 @@
-#MaxWon自定义H5模块示例
+# MaxWon自定义H5模块示例
 
-##概述
+## 概述
 本文主要讲述如何利用 MaxLeap 的云容器功能，实现 MaxWon 自定义H5模块的相关功能，本文档实现了获取会员信息，并修改会员昵称的功能。主要效果如下所示：
 
 	若自定义链接中地址栏没有相应的会员登录信息，则没有任何信息，按钮点击也没有效果。
@@ -17,39 +17,38 @@
 
 ![修改成功](http://7xs3q2.com1.z0.glb.clouddn.com/92CAD1846AFAD9846758A7E18C7B6A65.jpg)
 
-##H5页面逻辑实现
-###STEP 1:
+## H5页面逻辑实现
+### STEP 1:
 	首先获取地址栏中的query string信息，拿到包含 
 	maxleap_appid，maxleap_apikey，maxleap_sessiontoken,maxleap_userid的信息（实际中，key值不区分大小写）
 	
-###STEP 2:
-	根据提取信息，判断用户是否登录，如果已登录，则尝试去获取会员信息，并渲染相关字段。
+### STEP 2:
+	根据提取信息，判断用户是否登录，如果已登录，则尝试调用 MaxWon 的 Api 获取会员信息，并渲染相关字段。
 	
-###STEP 3:
+### STEP 3:
 	绑定修改按钮事件
 
-##云容器部署
-###STEP 1:
-登录MaxLeap网站,访问 [设置页面](https://maxleap.cn/p/console/settings#system),
-然后配置你想要的云容器主机子域名。  
+## 云容器部署
+### STEP 1:
+你需要一个 MaxLeap 的账号,并且已创建好 App. 如果你还没有,[点击这里快速开始](https://maxleap.cn/s/web/zh_cn/guide/usermanual/maxLeapquickstart.html).  
+登录 MaxLeap 网站,访问 [设置页面](https://maxleap.cn/p/console/settings#system),
+然后配置你想要的云容器主机子域名。 
+关于什么是云容器,[猛戳这里](https://maxleap.cn/s/web/zh_cn/guide/usermanual/cloudContainer.html). 
 
 ![配置云容器主机子域名](http://7xs3q2.com1.z0.glb.clouddn.com/B74B03BF-5FA3-4EC3-A8FF-6A9DA77F93BB.png)
 	
-###STEP 2:
-访问[云容器页面](https://maxleap.cn/p/console/cloudcontainer#versionstatus/upload-cloud-container-site),并点击上传静态网站代码，填写响应配置：  
+### STEP 2:
+由于我们的 demo 比较简单,因此使用静态网站的模式.
 
-这里需要注意的是：我在HTML页面请请求 /1.0/mems/ 借口，需要在nginx 做下转发，具体可在nginx配置中加条配置：
-		
-		location ^~ /1.0 {  
-     		proxy_pass http://wonapi.maxleap.cn;
- 		}
+访问[云容器页面](https://maxleap.cn/p/console/cloudcontainer#versionstatus/upload-cloud-container-site),并点击上传静态网站代码 
    
 ![上传静态网站代码](http://7xs3q2.com1.z0.glb.clouddn.com/C078DB80-CF68-4612-8133-F8536D2A9C40.png)
-###STEP 3:
-部署将刚刚上传的云容器实例。  
+
+### STEP 3:
+部署将云容器。  
 
 ![部署云容器实例](http://7xs3q2.com1.z0.glb.clouddn.com/54332046-B2EA-41DC-9652-340985AD2C18.png)
-###STEP 4:
+### STEP 4:
 测试下是否能正常访问刚刚部署好的云服务器。  
 
 ![测试是否能访问](http://7xs3q2.com1.z0.glb.clouddn.com/lALOWDErDc0C4s0Bnw_415_738.png)	
@@ -57,20 +56,19 @@
 有关云容器的详细教程，请参考MaxLeap云容器[文档](https://maxleap.cn/s/web/zh_cn/guide/usermanual/cloudContainer.html#云容器-使用流程-静态网站项目)
 
 
-
-##MaxWon配置自定义URL
-###STEP 1:
-登录MaxWon，添加自定义模块，并填写上面部署好的云容器域名地址。  
+## MaxWon 自定义模块配置
+### STEP 1:
+登录MaxWon，添加自定义模块，并填写上面部署好的刚才拿到的地址。  
 
 ![填写自定义模块地址](http://7xs3q2.com1.z0.glb.clouddn.com/97B77EFC-C381-4C9D-8D2D-11D37317F38E.png)
 
-###STEP 2:
+### STEP 2:
 点击一键生成，开始构建生成应用  
 
 ![构建应用](http://7xs3q2.com1.z0.glb.clouddn.com/31D2182E-BEB9-424D-8E74-4E45A404DD48.png)
 
 
-###STEP 3:
+### STEP 3:
 手机端测试  
 
 ![修改成功](http://7xs3q2.com1.z0.glb.clouddn.com/lALOV74r7M0HgM0EOA_1080_1920.png)
