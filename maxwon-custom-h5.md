@@ -1,11 +1,7 @@
-#MaxWon自定义H5模块示例
+# MaxWon自定义H5模块示例
 
-##概述
+## 概述
 本文主要讲述如何利用 MaxLeap 的云容器功能，实现 MaxWon 自定义H5模块的相关功能，本文档实现了获取会员信息，并修改会员昵称的功能。主要效果如下所示：
-
-	若自定义链接中地址栏没有相应的会员登录信息，则会提示未登录。
-
-![未登录](http://7xs3q2.com1.z0.glb.clouddn.com/77952416-D5F7-4B6E-BA75-F6DA5C922533.png)
 
 	如果地址栏中含有登录的信息，并且获取信息成功，则会显示出当前会员的相关信息：
 	
@@ -15,25 +11,29 @@
 	
 ![修改成功提示](http://7xs3q2.com1.z0.glb.clouddn.com/E426B02D-6C28-4188-9F2D-E1627B9372D1.png)
 
-##H5页面逻辑实现
-###STEP 1:
+	若自定义链接中地址栏没有相应的会员登录信息，则会提示未登录。
+
+![未登录](http://7xs3q2.com1.z0.glb.clouddn.com/77952416-D5F7-4B6E-BA75-F6DA5C922533.png)
+
+## H5页面逻辑实现
+### STEP 1:
 	首先获取地址栏中的query string信息，拿到包含 
 	maxleap_appid，maxleap_apikey，maxleap_sessiontoken,maxleap_userid的信息（实际中，key值不区分大小写）
 	
-###STEP 2:
+### STEP 2:
 	根据提取信息，判断用户是否登录，如果已登录，则尝试去获取会员信息，并渲染相关字段。
 	
-###STEP 3:
+### STEP 3:
 	绑定修改按钮事件
 
-##云容器部署
-###STEP 1:
+## 云容器部署
+### STEP 1:
 登录MaxLeap网站,访问 [设置页面](https://maxleap.cn/p/console/settings#system),
 然后配置你想要的云容器主机子域名。  
 
 ![配置云容器主机子域名](http://7xs3q2.com1.z0.glb.clouddn.com/B74B03BF-5FA3-4EC3-A8FF-6A9DA77F93BB.png)
 	
-###STEP 2:
+### STEP 2:
 访问[云容器页面](https://maxleap.cn/p/console/cloudcontainer#versionstatus/upload-cloud-container-site),并点击上传静态网站代码，填写响应配置：  
 
 这里需要注意的是：我在HTML页面请请求 /1.0/mems/ 借口，需要在nginx 做下转发，具体可在nginx配置中加条配置：
@@ -43,11 +43,11 @@
  		}
    
 ![上传静态网站代码](http://7xs3q2.com1.z0.glb.clouddn.com/C078DB80-CF68-4612-8133-F8536D2A9C40.png)
-###STEP 3:
+### STEP 3:
 部署将刚刚上传的云容器实例。  
 
 ![部署云容器实例](http://7xs3q2.com1.z0.glb.clouddn.com/54332046-B2EA-41DC-9652-340985AD2C18.png)
-###STEP 4:
+### STEP 4:
 测试下是否能正常访问刚刚部署好的云服务器。  
 
 ![测试是否能访问](http://7xs3q2.com1.z0.glb.clouddn.com/77952416-D5F7-4B6E-BA75-F6DA5C922533.png)	
@@ -56,19 +56,19 @@
 
 
 
-##MaxWon配置自定义URL
-###STEP 1:
+## MaxWon配置自定义URL
+### STEP 1:
 登录MaxWon，添加自定义模块，并填写上面部署好的云容器域名地址。  
 
 ![填写自定义模块地址](http://7xs3q2.com1.z0.glb.clouddn.com/97B77EFC-C381-4C9D-8D2D-11D37317F38E.png)
 
-###STEP 2:
+### STEP 2:
 点击一键生成，开始构建生成应用  
 
 ![构建应用](http://7xs3q2.com1.z0.glb.clouddn.com/31D2182E-BEB9-424D-8E74-4E45A404DD48.png)
 
 
-###STEP 3:
+### STEP 3:
 手机端测试  
 
 ![修改成功](http://7xs3q2.com1.z0.glb.clouddn.com/lALOV74r7M0HgM0EOA_1080_1920.png)
