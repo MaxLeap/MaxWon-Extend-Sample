@@ -23,6 +23,7 @@
 </body>
 <script type="text/javascript">
     window.onload = function () {
+        var baseUrl = "http://wonapi.maxleap.cn/1.0/"
         var appInfo = getUrlQueryInfo();
         var memberId = appInfo.memId;
         var nicknameTag = document.getElementById("nickname");
@@ -54,7 +55,7 @@
 
         //获取会员信息并渲染页面
         function getMemberInfoAndRender() {
-            ajaxGet("1.0/mems/" + memberId, {}, function (res) {
+            ajaxGet(baseUrl+"mems/" + memberId, {}, function (res) {
                 if (res) {
                     nicknameTag.innerText = res.nickName;
                     currentScoreTag.innerText = res.integral;
@@ -82,7 +83,7 @@
         //更新会员信息
         function updateMemberInfo(info) {
 
-            ajaxPut("1.0/mems/" + memberId, info, function () {
+            ajaxPut(baseUrl+"mems/" + memberId, info, function () {
                 alert("修改成功");
                 nicknameTag.innerText = info.nickName;
             }, function () {
@@ -160,7 +161,7 @@
             //});
             xhr.open(type, url);
             xhr.setRequestHeader("X-ML-AppId", appInfo.appId);
-            xhr.setRequestHeader("X-ML-AppKey", appInfo.appKey);
+            xhr.setRequestHeader("X-ML-ApiKey", appInfo.appKey);
             xhr.setRequestHeader("X-ML-Session-Token", appInfo.sessionToken);
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.send(JSON.stringify(data) || null);
