@@ -5,22 +5,23 @@
 此 demo 实现了获取会员信息，并修改会员昵称的功能.  
 主要效果如下所示：  
 
-	在生成的 App 中点击自定义模块，会在 App 打开一个 h5 页面, 此页面会显示出当前会员的相关信息：
+在生成的 App 中点击自定义模块，会在 App 打开一个 h5 页面, 此页面会显示出当前会员的相关信息：
 	
 ![已登录获取信息](http://7xs3q2.com1.z0.glb.clouddn.com/F411B6D56A3C73BAAD3B0E04C650BA53.jpg)
 
-	在输入框中输入新的昵称,点击修改按钮,可以修改会员昵称:
+在输入框中输入新的昵称,点击修改按钮,可以修改会员昵称:
 	
 ![修改]	(http://7xs3q2.com1.z0.glb.clouddn.com/F9FE14DD07026773BB0F189CA0C619FF.jpg)  
 
-	修改成功:
+修改成功:
 
 ![修改成功](http://7xs3q2.com1.z0.glb.clouddn.com/92CAD1846AFAD9846758A7E18C7B6A65.jpg)
 
 ## h5 页面实现
 ### STEP 1:
-	通过 js 获取地址栏中的 query string信息，拿到当前用户的身份信息及 App 信息, 访问 Maxwon API 时需要用到.  
-	这些信息包括: maxleap_appid，maxleap_apikey, maxleap_sessiontoken,maxleap_userid的信息(key值不区分大小写).  
+
+通过 js 获取地址栏中的 query string信息，拿到当前用户的身份信息及 App 信息, 访问 Maxwon API 时需要用到.  
+这些信息包括: maxleap_appid，maxleap_apikey, maxleap_sessiontoken,maxleap_userid的信息(key值不区分大小写).  
 
 ```
         //获取地址栏信息
@@ -54,50 +55,50 @@
 ```
 	
 ### STEP 2:
-	根据上面拿到的信息,调用 MaxWon API 获取会员信息，并修改页面上相应字段的值.
+根据上面拿到的信息,调用 MaxWon API 获取会员信息，并修改页面上相应字段的值.
 
 ```
-        //获取会员信息并渲染页面
-    function getMemberInfoAndRender() {
-        ajaxGet(baseUrl+"mems/" + memberId, {}, function (res) {
-            if (res) {
-                nicknameTag.innerText = res.nickName;
-                currentScoreTag.innerText = res.integral;
-                currentBalanceTag.innerText = (res.balance / 100).toFixed(2);
-            }
-        }, function (err) {
-            alert("获取会员信息失败");
-        });
-    }
+//获取会员信息并渲染页面
+function getMemberInfoAndRender() {
+    ajaxGet(baseUrl+"mems/" + memberId, {}, function (res) {
+        if (res) {
+            nicknameTag.innerText = res.nickName;
+            currentScoreTag.innerText = res.integral;
+            currentBalanceTag.innerText = (res.balance / 100).toFixed(2);
+        }
+    }, function (err) {
+        alert("获取会员信息失败");
+    });
+}
 ```
 	
 ### STEP 3:
 	绑定"修改"按钮事件,更新会员信息:
 ```
-        //绑定修改点击事件
-        function bindChangeScoreEvent() {
-            changeScoreTag.addEventListener("click", function (e) {
-                var value = nicknameInput.value.trim();
+//绑定修改点击事件
+function bindChangeScoreEvent() {
+    changeScoreTag.addEventListener("click", function (e) {
+        var value = nicknameInput.value.trim();
 
-                if (value !== '') {
-                    updateMemberInfo({
-                        nickName: value
-                    });
-                    nicknameInput.value = '';
-                }
+        if (value !== '') {
+            updateMemberInfo({
+                nickName: value
             });
+            nicknameInput.value = '';
         }
+    });
+}
 
-        //更新会员信息
-        function updateMemberInfo(info) {
+//更新会员信息
+function updateMemberInfo(info) {
 
-            ajaxPut(baseUrl+"mems/" + memberId, info, function () {
-                alert("修改成功");
-                nicknameTag.innerText = info.nickName;
-            }, function () {
-                alert("修改失败");
-            })
-        }
+    ajaxPut(baseUrl+"mems/" + memberId, info, function () {
+        alert("修改成功");
+        nicknameTag.innerText = info.nickName;
+    }, function () {
+        alert("修改失败");
+    })
+}
 ```
 
 ## 部署
@@ -118,8 +119,6 @@
 ![上传静态网站代码](https://static.maxleap.cn/s/web/zh_cn/images/LAS-Docs-Images/web_container2.png)
 
 ![上传静态网站代码2](https://static.maxleap.cn/s/web/zh_cn/images/LAS-Docs-Images/web_container3.png)
-
-
 
 ### STEP 3:
 
