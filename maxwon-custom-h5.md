@@ -7,7 +7,7 @@
 
 在生成的 App 中点击自定义模块,会在 App 打开一个 h5 页面, 此页面会显示出当前会员的相关信息：
 
-[app 导航](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/entry.jpg)
+![app 导航](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/entry.jpg)
 	
 ![已登录获取信息](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/home.jpg)
 
