@@ -3,13 +3,19 @@
 ## 概述
 本文主要讲述如何利用 MaxLeap 的云容器功能，实现 MaxWon 自定义H5模块的相关功能，本文档实现了获取会员信息，并修改会员昵称的功能。主要效果如下所示：
 
+	若自定义链接中地址栏没有相应的会员登录信息，则没有任何信息，按钮点击也没有效果。
+
+![未登录](http://7xs3q2.com1.z0.glb.clouddn.com/AEE075427C0E9105FE98DB513FBF2A4D.jpg)
+
 	如果地址栏中含有登录的信息，并且获取信息成功，则会显示出当前会员的相关信息：
 	
-![已登录获取信息](http://7xs3q2.com1.z0.glb.clouddn.com/3993F3B0-8477-42BB-876F-D7955A3FD1EF.png)
+![已登录获取信息](http://7xs3q2.com1.z0.glb.clouddn.com/F411B6D56A3C73BAAD3B0E04C650BA53.jpg)
 
-	点击修改按钮，修改会员昵称，根据接口的·返回提示修改成功或者失败
+	点击修改按钮，修改会员昵称
 	
-![修改成功提示](http://7xs3q2.com1.z0.glb.clouddn.com/E426B02D-6C28-4188-9F2D-E1627B9372D1.png)
+![修改]	(http://7xs3q2.com1.z0.glb.clouddn.com/F9FE14DD07026773BB0F189CA0C619FF.jpg)  
+
+![修改成功](http://7xs3q2.com1.z0.glb.clouddn.com/92CAD1846AFAD9846758A7E18C7B6A65.jpg)
 
 ## H5页面逻辑实现
 ### STEP 1:
@@ -45,7 +51,7 @@
 ### STEP 4:
 测试下是否能正常访问刚刚部署好的云服务器。  
 
-![测试是否能访问](http://7xs3q2.com1.z0.glb.clouddn.com/77952416-D5F7-4B6E-BA75-F6DA5C922533.png)	
+![测试是否能访问](http://7xs3q2.com1.z0.glb.clouddn.com/lALOWDErDc0C4s0Bnw_415_738.png)	
 	
 有关云容器的详细教程，请参考MaxLeap云容器[文档](https://maxleap.cn/s/web/zh_cn/guide/usermanual/cloudContainer.html#云容器-使用流程-静态网站项目)
 
