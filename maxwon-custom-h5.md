@@ -103,10 +103,11 @@
 ## 部署
 
 ### STEP 1:
-注册并登录 MaxLeap 平台，创建一个应用，进入【应用设置 -> 系统设置】，配置云容器二级域名并保存.
+注册并登录 MaxLeap 平台，创建一个应用，进入【应用设置 -> 系统设置】，配置云容器二级域名并保存.  
 关于什么是云容器,[猛戳这里](https://maxleap.cn/s/web/zh_cn/guide/usermanual/cloudContainer.html). 
 
 ![配置云容器主机子域名](https://static.maxleap.cn/s/web/zh_cn/images/LAS-Docs-Images/web_container1.png)
+
 这个域名地址需要记下来,后面需要填到 Maxwon 的管理页面中.   
 
 ### STEP 2:
@@ -135,11 +136,12 @@
 
 ![测试是否能访问](http://7xs3q2.com1.z0.glb.clouddn.com/lALOWDErDc0C4s0Bnw_415_738.png)	
 	
-有关云容器的详细教程，请参考MaxLeap云容器[文档](https://maxleap.cn/s/web/zh_cn/guide/usermanual/cloudContainer.html#云容器-使用流程-静态网站项目)
+有关云容器的详细教程，请参考MaxLeap云容器[文档](https://maxleap.cn/s/web/zh_cn/guide/usermanual/cloudContainer.html#云容器-使用流程-静态网站项目).
 
 ## MaxWon 自定义模块配置
-### STEP 1:
-登录MaxWon，添加自定义模块，并填写上面部署好的刚才拿到的域名+你的 html 文件地址.由于默认访问 index.html,我这里就直接填域名了.  
+### STEP 1: 
+登录MaxWon，添加自定义模块，并在 url 地址 一栏中填写刚才的域名 + 你的 html 文件地址.  
+由于默认访问 index.html,我这里就直接填域名了.  
 
 ![填写自定义模块地址](http://7xs3q2.com1.z0.glb.clouddn.com/97B77EFC-C381-4C9D-8D2D-11D37317F38E.png)
 
@@ -148,10 +150,7 @@
 
 ![构建应用](http://7xs3q2.com1.z0.glb.clouddn.com/31D2182E-BEB9-424D-8E74-4E45A404DD48.png)
 
-
 ### STEP 3:
-手机端测试  
+在手机上安装刚刚生成的 App,找到并打开刚刚自定义的模块,就能够看到 h5 页面的效果了.
 
 ![修改成功](http://7xs3q2.com1.z0.glb.clouddn.com/lALOV74r7M0HgM0EOA_1080_1920.png)
-
-##测试完毕，一切正常
