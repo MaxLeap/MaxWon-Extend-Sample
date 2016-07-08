@@ -24,34 +24,34 @@
 这些信息包括: maxleap_appid，maxleap_apikey, maxleap_sessiontoken,maxleap_userid的信息(key值不区分大小写).  
 
 ```
-        //获取地址栏信息
-        function getUrlQueryInfo() {
-            var appId, appKey, sessionToken, memId;
+//获取地址栏信息
+function getUrlQueryInfo() {
+    var appId, appKey, sessionToken, memId;
 
-            appId = getQueryString("appId");
-            appKey = getQueryString("apiKey");
-            sessionToken = getQueryString("sessionToken");
-            memId = getQueryString("userid");
+    appId = getQueryString("appId");
+    appKey = getQueryString("apiKey");
+    sessionToken = getQueryString("sessionToken");
+    memId = getQueryString("userid");
 
-            return {
-                appId: appId,
-                appKey: appKey,
-                sessionToken: sessionToken,
-                memId: memId
-            };
+    return {
+        appId: appId,
+        appKey: appKey,
+        sessionToken: sessionToken,
+        memId: memId
+    };
 
-            //获取地址栏参数
-            function getQueryString(name) {
-                var prefix = 'maxleap_';
-                name = prefix+name;
-                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", 'i');
-                var result = window.location.search.substr(1).match(reg);
-                if (result != null) {
-                    return unescape(result[2]);
-                }
-                return null;
-            }
+    //获取地址栏参数
+    function getQueryString(name) {
+        var prefix = 'maxleap_';
+        name = prefix+name;
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", 'i');
+        var result = window.location.search.substr(1).match(reg);
+        if (result != null) {
+            return unescape(result[2]);
         }
+        return null;
+    }
+}
 ```
 	
 ### STEP 2:
