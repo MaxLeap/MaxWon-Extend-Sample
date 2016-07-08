@@ -134,7 +134,7 @@
 
 根据 step1 中配置的二级域名，访问网站,测试是否能正常访问刚刚部署好的云服务器.
 
-![测试是否能访问](http://7xs3q2.com1.z0.glb.clouddn.com/lALOWDErDc0C4s0Bnw_415_738.png)	
+![测试是否能访问](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/test.png)	
 	
 有关云容器的详细教程，请参考MaxLeap云容器[文档](https://maxleap.cn/s/web/zh_cn/guide/usermanual/cloudContainer.html#云容器-使用流程-静态网站项目).
 
@@ -143,12 +143,12 @@
 登录MaxWon，添加自定义模块，并在 url 地址 一栏中填写刚才的域名 + 你的 html 文件地址.  
 由于默认访问 index.html,我这里就直接填域名了.  
 
-![填写自定义模块地址](http://7xs3q2.com1.z0.glb.clouddn.com/97B77EFC-C381-4C9D-8D2D-11D37317F38E.png)
+![填写自定义模块地址](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/custom_url.jpeg)
 
 ### STEP 2:
 点击一键生成，开始构建生成应用  
 
-![构建应用](http://7xs3q2.com1.z0.glb.clouddn.com/31D2182E-BEB9-424D-8E74-4E45A404DD48.png)
+![构建应用](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/build_app.jpeg)
 
 ### STEP 3:
 在手机上安装刚刚生成的 App,找到并打开刚刚自定义的模块,就能够看到 h5 页面的效果了.
