@@ -145,11 +145,11 @@ function updateMemberInfo(info) {
 ![填写自定义模块地址](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/custom_url.jpeg)
 
 ### STEP 2:
-点击一键生成,开始构建生成应用  
+点击一键生成,开始构建生成应用:  
 
 ![构建应用](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/build_app.jpeg)
 
 ### STEP 3:
-在手机上安装刚刚生成的 App,找到并打开刚刚自定义的模块,就能够看到 h5 页面的效果了.
+在手机上安装刚刚生成的 App,找到并打开刚刚自定义的模块,就能够看到 h5 页面的效果了:
 
 ![修改成功](http://7xs3q2.com1.z0.glb.clouddn.com/lALOV74r7M0HgM0EOA_1080_1920.png)
