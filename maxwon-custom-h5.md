@@ -75,7 +75,8 @@ function getMemberInfoAndRender() {
 ```
 	
 ### STEP 3:
-	绑定"修改"按钮事件,更新会员信息:
+
+绑定"修改"按钮事件,更新会员信息:
 ```
 //绑定修改点击事件
 function bindChangeScoreEvent() {
