@@ -3,7 +3,8 @@
 ## 概述
 本文主要讲述如何利用 MaxLeap 的云容器功能,实现 MaxWon 自定义H5模块的相关功能.  
 此 demo 实现了获取会员信息,并修改会员昵称的功能.  
-主要效果如下所示：  
+
+**主要效果如下所示:**
 
 在生成的 App 中点击自定义模块,会在 App 打开一个 h5 页面, 此页面会显示出当前会员的相关信息：
 
@@ -13,7 +14,7 @@
 
 在输入框中输入新的昵称,点击修改按钮,可以修改会员昵称:
 	
-![修改]	(https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/change_nickname.jpg)  
+![修改](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/change_nickname.jpg)  
 
 修改成功:
 
@@ -77,6 +78,7 @@ function getMemberInfoAndRender() {
 ### STEP 3:
 
 绑定"修改"按钮事件,更新会员信息:
+
 ```
 //绑定修改点击事件
 function bindChangeScoreEvent() {
