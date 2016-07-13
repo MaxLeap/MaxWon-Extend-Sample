@@ -32,4 +32,4 @@
 * HTML 语法
 * CSS 语法
 * JS 语法
-至于更加全面和详细的知识结构或书籍推荐,猛戳这里: [http://html5ify.com/fks/](http://html5ify.com/fks/)
+至于更加详细的知识结构或书籍推荐,猛戳这里: [http://html5ify.com/fks/](http://html5ify.com/fks/)
