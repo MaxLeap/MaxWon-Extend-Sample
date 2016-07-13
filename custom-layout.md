@@ -31,5 +31,6 @@
 如果你没有前端基础,你可能至少需要了解以下内容:
 * HTML 语法
 * CSS 语法
-* JS 语法
-至于更加详细的知识或书籍推荐,猛戳这里: [http://html5ify.com/fks/](http://html5ify.com/fks/)
+* JS 语法  
+
+至于更加详细的知识或书籍推荐,猛戳这里: [http://html5ify.com/fks](http://html5ify.com/fks)
