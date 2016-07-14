@@ -284,7 +284,8 @@
 
 ![](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/custom_layout/module_list_in_mobile.png)
 
-至此,我们已经完成了一个较为完整的自定义布局.当然,由于 App 采用标准的 WebView 进行渲染,你可以尽情的展开你的想象力,写出更加炫酷的页面! 
+至此,我们已经完成了一个较为完整的自定义布局.   
+当然,由于 App 采用标准的 WebView 进行渲染,你可以尽情的展开你的想象力,写出更加炫酷的页面! 
 
 ### 高级话题
 
