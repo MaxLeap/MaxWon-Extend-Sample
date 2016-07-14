@@ -128,7 +128,7 @@
         #module-list {
             margin-top: 5px;
             padding-bottom: 5px;
-            text-align: left
+            text-align: left;
         }
 
         #module-list li, #module-list a {
@@ -146,7 +146,8 @@
 
         #module-list li {
             width: 30%;
-            text-align: center
+            text-align: center;
+            margin-bottom: 20px;
         }
 
         #module-list div {
