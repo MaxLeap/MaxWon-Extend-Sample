@@ -283,7 +283,11 @@
 1. 我们使用了2种形式的图片,logo 使用在线形式, icon 使用 base64 进行编码(Maxwon 生成的 App 会在本地缓存此页面,使用 base64编码并写在 html 中可以在用户无网络的情况下也能照常使用).  
 2. 由于是一个较完整的示例,我们补全了 html,body 等标签,成为一个标准的 html 页面.
 
-同样的,我们在 Maxwon 的管理界面中填入我们的代码,并生成新的 App.下载 App 后打开,查看效果:
+
+我们可以使用浏览器进行调试:
+![](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/custom_layout/module_list_browser.png)
+
+调试完成后,同样的,我们在 Maxwon 的管理界面中填入我们的代码,并生成新的 App.下载 App 后打开,查看效果:
 
 ![](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/custom_layout/module_list_in_mobile.png)
 
