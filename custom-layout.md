@@ -271,7 +271,9 @@
 </body>
 
 </html>
+
 ```
+[猛戳这里获取以上代码](https://github.com/huangciyin/notes/blob/master/Web/maxwon/custom-layout/styled.html)
 
 这一次,我们增加了一些自定义的样式和图片.
 
