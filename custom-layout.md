@@ -284,14 +284,15 @@
 
 ![](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/custom_layout/module_list_in_mobile.png)
 
-### 其他注意事项
+至此,我们已经完成了一个较为完整的自定义布局.当然,由于 App 采用标准的 WebView 进行渲染,你可以尽情的展开你的想象力,写出更加炫酷的页面! 
 
-编码时,你可能至少要考虑以下问题:
+### 高级话题
+
+编码时,你可能需要考虑以下问题:
 
 * 是否需要适配不同尺寸的屏幕.
 * 是否需要支持 retina.
 * 是否需要考虑 Android WebView 的兼容性和性能.
 * 图片尽量使用 base64 编码并写在 html 中,这样打开速度快,且离线时也能用. 
 
-至此,我们已经完成了一个较为完整的自定义布局.当然,由于 App 采用标准的 WebView 进行渲染,你可以尽情的展开你的想象力,写出更加炫酷的页面!  
-如果你想知道更多的前端知识,请猛戳这里: [http://html5ify.com/fks](http://html5ify.com/fks)
+不过这些问题依赖特定场景,如果你是一个经验丰富的前端工程师,相信这些都可以轻松搞定.   但如果你想了解更多关于前端的知识,请猛戳这里: [http://html5ify.com/fks](http://html5ify.com/fks)
