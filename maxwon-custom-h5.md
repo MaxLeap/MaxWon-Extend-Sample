@@ -160,8 +160,13 @@ function updateMemberInfo(info) {
 
 ![手机效果](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/home.jpg)
 
+## 调试
+1. 你可以在自己的笔记本上或者某个自己的服务器上托管一个网站, 获得可访问的url(可以是内网或者外网url).  
+2. 像之前一样,在 maxwon 的管理界面中新增扩展,填入此url.生成新的 app.
+3. 现在你就可以通过此 app 来进行调试了.
+
 ## 高级
 云容器不仅仅只能部署静态网站,你也可以使用 [PHP](https://maxleap.cn/s/web/zh_cn/guide/usermanual/cloudContainer.html#云容器-使用流程-php-项目) 或 [Java](https://maxleap.cn/s/web/zh_cn/guide/usermanual/cloudContainer.html#云容器-使用流程-java-tomcat-项目) + [自定义 Mysql 数据源](https://maxleap.cn/s/web/zh_cn/guide/usermanual/datasource.html)完成任何复杂的功能.  
 如果你不想写后端代码,可以试试 [Cloud Data](https://maxleap.cn/s/web/zh_cn/guide/usermanual/clouddata.html).  
 你也可以使用 [Cloud Code](https://maxleap.cn/s/web/zh_cn/guide/usermanual/cloudcode.html) 生成 Api.  
-当然, 如果你愿意,你可以把你的服务器部署在任何你想要的地方,不必限制在 MaxLeap. MaxWon 需要的只是一个指定的 url 即可.  
+当然, 如果你愿意,你可以把你的服务器部署在任何你想要的地方,不必限制在 MaxLeap. MaxWon 需要的只是一个指定的 url 即可.
