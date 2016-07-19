@@ -94,16 +94,16 @@
 
         //获取地址栏信息
         function getUrlQueryInfo() {
-            var appId, appKey, sessionToken, memId;
+            var appId, /*appKey,*/ sessionToken, memId;
 
             appId = getQueryString("appId");
-            appKey = getQueryString("apiKey");
+            // appKey = getQueryString("apiKey");
             sessionToken = getQueryString("sessionToken");
             memId = getQueryString("userid");
 
             return {
                 appId: appId,
-                appKey: appKey,
+                // appKey: appKey,
                 sessionToken: sessionToken,
                 memId: memId
             };
@@ -161,7 +161,7 @@
             //});
             xhr.open(type, url);
             xhr.setRequestHeader("X-ML-AppId", appInfo.appId);
-            xhr.setRequestHeader("X-ML-ApiKey", appInfo.appKey);
+            // xhr.setRequestHeader("X-ML-ApiKey", appInfo.appKey);
             xhr.setRequestHeader("X-ML-Session-Token", appInfo.sessionToken);
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.send(JSON.stringify(data) || null);
