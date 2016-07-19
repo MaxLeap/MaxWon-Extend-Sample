@@ -24,7 +24,7 @@
 ### STEP 1:
 
 通过 js 获取地址栏中的 query string 信息,拿到当前用户的身份信息及 App 信息, 访问 Maxwon API 时需要用到.  
-这些信息包括: maxleap_appid,maxleap_apikey, maxleap_userid, maxleap_sessiontoken(key值不区分大小写. 如果用户没有在 App 中登录, maxleap_userid, maxleap_sessiontoken为空,此时可以在 h5 中引导用户登录).  
+这些信息包括: maxleap_appid, maxleap_userid, maxleap_sessiontoken(key值不区分大小写. 如果用户没有在 App 中登录, maxleap_userid, maxleap_sessiontoken为空,此时可以在 h5 中引导用户登录).  
 
 ```
 //获取地址栏信息
