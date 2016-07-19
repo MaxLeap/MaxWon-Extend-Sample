@@ -29,16 +29,14 @@
 ```
 //获取地址栏信息
 function getUrlQueryInfo() {
-    var appId, appKey, sessionToken, memId;
+    var appId, sessionToken, memId;
 
     appId = getQueryString("appId");
-    appKey = getQueryString("apiKey");
     sessionToken = getQueryString("sessionToken");
     memId = getQueryString("userid");
 
     return {
         appId: appId,
-        appKey: appKey,
         sessionToken: sessionToken,
         memId: memId
     };
