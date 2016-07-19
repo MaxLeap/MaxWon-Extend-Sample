@@ -161,7 +161,7 @@ function updateMemberInfo(info) {
 ![手机效果](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/home.jpg)
 
 ## 调试
-1. 你可以在自己的笔记本上或者某个自己的服务器上托管一个网站, 获得可访问的url(可以是内网或者外网url,如 http://192.168.2.100:3000/index.html).  
+1. 你可以在自己的笔记本上或者某个自己的服务器上托管一个网站, 获得可访问的url(可以是内网或者外网url,如 http://192.168.1.100:3000/index.php).  
 2. 像之前一样,在 maxwon 的管理界面中新增扩展(或更新原来的扩展配置),填入此url.生成新的 app.
 3. 现在你就可以通过此 app 来进行调试了.
 
