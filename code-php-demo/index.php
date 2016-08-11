@@ -41,10 +41,6 @@ $result['maxleap_appid'] = getUrlParam("maxleap_appid");
 $result['maxleap_userid'] = getUrlParam("maxleap_userid");
 $result['maxleap_sessiontoken'] = getUrlParam('maxleap_sessiontoken');
 
-$result['maxleap_appid'] = "57a05f4aa5ff7f0001db65dd";
-$result['maxleap_userid'] = "1";
-$result['maxleap_sessiontoken'] = "MrUyhfkFFxa598T4vZP9mlfA9hO6bE1Utz7Wf0SRy-A";
-
 //print_r($result);
 
 $ch = curl_init();
