@@ -6,7 +6,7 @@
 
 **主要效果如下所示:**
 
-在生成的 App 中点击自定义模块,会在 App 打开一个 h5 页面, 此页面会显示出当前会员的相关信息：
+在生成的 App 中点击自定义模块,会在 App 打开一个 PHP 页面, 此页面会显示出当前会员的相关信息：
 
 ![app 导航](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/entry.jpg)
 	
@@ -20,7 +20,7 @@
 
 ![修改成功](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/change_nickname_success.jpg)
 
-## h5 页面实现
+## PHP 页面实现
 ### STEP 1:
 
 通过$_SERVER["REQUEST_URI"]获取REQUEST参数。
@@ -185,7 +185,7 @@ $(document).ready(function(){
 ![构建应用](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/build_app.jpeg)
 
 ### STEP 3:
-在手机上安装刚刚生成的 App,找到并打开刚刚自定义的模块,就能够看到 h5 页面的效果了:
+在手机上安装刚刚生成的 App,找到并打开刚刚自定义的模块,就能够看到 PHP 页面的效果了:
 
 ![手机效果](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/home.jpg)
 
