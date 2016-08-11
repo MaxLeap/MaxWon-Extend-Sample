@@ -10,7 +10,7 @@
 
 ![app 导航](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/entry.jpg)
 	
-![已登录获取信息](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/home.jpg)
+![已登录获取信息](https://cscdn.maxleap.cn/2.0/download/NTdhYmU1YTU0NmUwZmIwMDA3NDdhNzY5/zcf-c74408b1-7e3c-4683-b4e4-bf26a15de858.png)
 
 在输入框中输入新的昵称,点击修改按钮,可以修改会员昵称:
 	
@@ -151,7 +151,7 @@ $(document).ready(function(){
 将我们写好的 index.php 放到一个 html 目录下,并将这个 html 目录压缩成 html.zip.  
 进入[【开发中心 -> 云容器 -> 版本】](https://maxleap.cn/p/console/cloudcontainer#versionstatus),点击【上传静态网站】按钮,输入应用名称、版本,上传 html.zip,点击保存按钮.
    
-![上传静态网站代码](https://static.maxleap.cn/s/web/zh_cn/images/LAS-Docs-Images/web_container2.png)
+![上传静态网站代码](https://cscdn.maxleap.cn/2.0/download/NTdhYmU1YTU0NmUwZmIwMDA3NDdhNzY5/zcf-c74408b1-7e3c-4683-b4e4-bf26a15de858.png)
 
 ![上传静态网站代码2](https://static.maxleap.cn/s/web/zh_cn/images/LAS-Docs-Images/web_container3.png)
 
