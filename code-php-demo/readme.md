@@ -187,7 +187,7 @@ $(document).ready(function(){
 ### STEP 3:
 在手机上安装刚刚生成的 App,找到并打开刚刚自定义的模块,就能够看到 PHP 页面的效果了:
 
-![手机效果](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/home.jpg)
+![手机效果](https://cscdn.maxleap.cn/2.0/download/NTdhYmU1YTU0NmUwZmIwMDA3NDdhNzY5/zcf-c74408b1-7e3c-4683-b4e4-bf26a15de858.png)
 
 ## 调试
 1. 你可以在自己的笔记本上或者某个自己的服务器上托管一个网站, 获得可访问的url(可以是内网或者外网url,如 http://192.168.1.100:3000/index.php).  
