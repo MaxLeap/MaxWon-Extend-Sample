@@ -183,10 +183,6 @@ $(function(){
 
 根据 step1 中配置的二级域名,测试是否能正常访问刚刚部署好的网站.
 
-![测试是否能访问](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/test.png)	
-	
-有关云容器的详细教程,请参考MaxLeap云容器[文档](https://maxleap.cn/s/web/zh_cn/guide/usermanual/cloudContainer.html#云容器-使用流程-静态网站项目).
-
 ## MaxWon 自定义模块配置
 ### STEP 1: 
 登录MaxWon,添加自定义模块,并在 url 地址 一栏中填写刚才的域名 + 你的 html 文件地址.  
