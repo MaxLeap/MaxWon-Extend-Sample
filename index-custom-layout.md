@@ -14,7 +14,7 @@
 登录 Maxwon 网站 => 制作应用 => 编辑布局 => 设置布局 => 选择最后的"自定义布局" => 选择"代码式"
 填入"hello world"  
 
-![hello world](https://cscdn.maxleap.cn/2.0/download/NTdiNDE3NzMyYTYyYTYwMDA3N2M5NDVj/zcf-dd2db729-f5c2-42a5-a4fd-69237ee35ba6.png)  
+![hello world](https://cscdn.maxleap.cn/2.0/download/NTdiNDE3NzMyYTYyYTYwMDA3N2M5NDVj/zcf-185da452-ff2b-44b9-ab62-55742bb1f85a.png)  
 
 点击生成 App,下载并安装生成的 App, 打开,可以看到"hello world"  
 
