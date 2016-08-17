@@ -9,16 +9,16 @@
 * CSS 语法
 
 
-## 如何自定义 
+## 如何自定义
 ### 步骤一  制作一个 hello World 页面
 登录 Maxwon 网站 => 制作应用 => 编辑布局 => 设置布局 => 选择最后的"自定义布局" => 选择"代码式"
 填入"hello world"  
 
-![hello world](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/custom_layout/hello_world.png)  
+![hello world](https://cscdn.maxleap.cn/2.0/download/NTdiNDE3NzMyYTYyYTYwMDA3N2M5NDVj/zcf-dd2db729-f5c2-42a5-a4fd-69237ee35ba6.png)  
 
 点击生成 App,下载并安装生成的 App, 打开,可以看到"hello world"  
 
-![hello world](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/custom_layout/hello_world_in_mobile.png)
+![hello world](https://cscdn.maxleap.cn/2.0/download/NTdiNDE3NzMyYTYyYTYwMDA3N2M5NDVj/zcf-b5da072e-45b6-475d-a81c-82bc70c140f3.png)
 
 这样一个简单的 hello world 页面就生成了.
 
@@ -33,7 +33,7 @@
 
 这个 A 标签在 App/H5 中被点击时,并不会打开 ```https://www.maxwon.cn/product``` 这个页面,而是会打开 **商品** 这个模块:
 
-![hello world](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/custom_layout/product_in_mobile.png)
+![hello world](https://cscdn.maxleap.cn/2.0/download/NTdiNDE3NzMyYTYyYTYwMDA3N2M5NDVj/zcf-1d747c72-80be-439b-bd48-a801b4401c05.png)
 
 类似的链接共有:
 
@@ -85,19 +85,19 @@
 <a href="https://www.baidu.com">百度</a>
 ```
 
-![hello world](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/custom_layout/links.png)
+![hello world](https://cscdn.maxleap.cn/2.0/download/NTdiNDE3NzMyYTYyYTYwMDA3N2M5NDVj/zcf-09c367b4-d68c-4398-ba84-18a63a7dcfc2.png)
 
 下载 App 后打开,查看首页:
 
-![hello world](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/custom_layout/links_in_mobile.png)
+![hello world](https://cscdn.maxleap.cn/2.0/download/NTdiNDE3NzMyYTYyYTYwMDA3N2M5NDVj/zcf-51924eaf-c0e0-4d95-a292-097629e92eed.png)
 
 点击 "商品", 检查是否打开了 **商品** 模块,而不是跳转到其他网页.
 
-![hello world](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/custom_layout/product_in_mobile.png)
+![hello world](https://cscdn.maxleap.cn/2.0/download/NTdiNDE3NzMyYTYyYTYwMDA3N2M5NDVj/zcf-1d747c72-80be-439b-bd48-a801b4401c05.png)
 
 点击 "百度",查看是否打开了百度首页.
 
-![hello world](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/custom_layout/baidu_in_mobile.png)
+![hello world](https://cscdn.maxleap.cn/2.0/download/NTdiNDE3NzMyYTYyYTYwMDA3N2M5NDVj/zcf-bf8c29e7-4ef4-4826-b26d-514a720f039d.png)
 
 这样,我们已经完成了导航的基础功能.
 
@@ -156,8 +156,8 @@
             border-radius: 21px;
             margin: 0 auto;
             background-image: url("data:image/png;base64,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");
-            background-repeat: no-repeat; 
-            background-position: center center; 
+            background-repeat: no-repeat;
+            background-position: center center;
         }
 
         #module-list p {
@@ -285,14 +285,14 @@
 
 
 我们可以使用浏览器进行调试:
-![](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/custom_layout/module_list_browser.png)
+![](https://cscdn.maxleap.cn/2.0/download/NTdiNDE3NzMyYTYyYTYwMDA3N2M5NDVj/zcf-29b2b550-866a-42ee-96c3-2ecc112bead5.png)
 
 调试完成后,同样的,我们在 Maxwon 的管理界面中填入我们的代码,并生成新的 App.下载 App 后打开,查看效果:
 
-![](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/custom_layout/module_list_in_mobile.png)
+![](https://cscdn.maxleap.cn/2.0/download/NTdiNDE3NzMyYTYyYTYwMDA3N2M5NDVj/zcf-6aeb0f0f-25c3-4f12-9696-fc1a415b9e34.png)
 
 至此,我们已经完成了一个较为完整的自定义布局.   
-当然,由于 App 采用标准的 WebView 进行渲染,你可以尽情的展开你的想象力,写出更加炫酷的页面! 
+当然,由于 App 采用标准的 WebView 进行渲染,你可以尽情的展开你的想象力,写出更加炫酷的页面!
 
 ### 高级话题
 
@@ -301,7 +301,7 @@
 * 是否需要适配不同尺寸的屏幕.
 * 是否需要支持 Retina.
 * 是否需要考虑 iOS/Android WebView 的兼容性和性能.
-* 图片尽量使用 base64 编码并写在 html 中,这样打开速度快,且离线时也能用. 
+* 图片尽量使用 base64 编码并写在 html 中,这样打开速度快,且离线时也能用.
 
 不过这些问题依赖特定场景,如果你是一个经验丰富的前端工程师,相信这些都可以轻松搞定.     
 但如果你想了解更多关于前端的知识,请猛戳这里: [http://html5ify.com/fks](http://html5ify.com/fks)
