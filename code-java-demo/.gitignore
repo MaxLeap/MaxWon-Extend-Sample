@@ -1,0 +1,16 @@
+*.class
+*.iml
+*.tmp
+.project
+.idea/
+.classpath
+.settings/
+target/
+*.log
+.DS_Store
+# Package Files #
+*.war
+*.ear
+*.zip
+/logs
+out/

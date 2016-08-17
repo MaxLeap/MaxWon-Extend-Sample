@@ -8,17 +8,13 @@
 
 在生成的 App 中点击自定义模块,会在 App 打开一个 PHP 页面, 此页面会显示出当前会员的相关信息：
 
-![app 导航](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/entry.jpg)
+![app 导航](https://static.maxleap.cn/s/web/zh_cn/images/LAS-Docs-Images/maxwon_java_demo.png)
 	
-![已登录获取信息](https://cscdn.maxleap.cn/2.0/download/NTdhYmU1YTU0NmUwZmIwMDA3NDdhNzY5/zcf-c74408b1-7e3c-4683-b4e4-bf26a15de858.png)
+![已登录获取信息](https://static.maxleap.cn/s/web/zh_cn/images/LAS-Docs-Images/maxwon_java_demo2.png)
 
-在输入框中输入新的昵称,点击修改按钮,可以修改会员昵称:
-	
-![修改](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/change_nickname.jpg)  
+在输入框中输入新的昵称,点击修改按钮,可以修改会员昵称,修改成功:
 
-修改成功:
-
-![修改成功](https://raw.githubusercontent.com/huangciyin/notes/master/Web/maxwon/images/change_nickname_success.jpg)
+![修改成功](https://static.maxleap.cn/s/web/zh_cn/images/LAS-Docs-Images/maxwon_java_demo3.png)
 
 ## JAVA 页面实现
 ### STEP 1:
@@ -206,7 +202,7 @@ $(function(){
 ### STEP 3:
 在手机上安装刚刚生成的 App,找到并打开刚刚自定义的模块,就能够看到 PHP 页面的效果了:
 
-![手机效果](https://cscdn.maxleap.cn/2.0/download/NTdhYmU1YTU0NmUwZmIwMDA3NDdhNzY5/zcf-c74408b1-7e3c-4683-b4e4-bf26a15de858.png)
+![手机效果](https://static.maxleap.cn/s/web/zh_cn/images/LAS-Docs-Images/maxwon_java_demo2.png)
 
 ## 调试
 1. 你可以在自己的笔记本上或者某个自己的服务器上托管一个网站, 获得可访问的url(可以是内网或者外网url,如 http://192.168.1.100:3000/index.php).  
