@@ -48,7 +48,7 @@ $baseurl =  isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : '
 $baseurl = $baseurl . "://wonapi.maxleap.cn/1.0/mems/".$result['maxleap_userid'];
 //echo $baseurl;
 $header = array(
-   'x-ml-appid: '.$result['maxleap_appid'] ,
+   'X-ML-AppId: '.$result['maxleap_appid'] ,
    'X-ML-Session-Token: '.$result['maxleap_sessiontoken']
 );
 curl_setopt($ch, CURLOPT_URL, $baseurl );
@@ -103,7 +103,7 @@ $(document).ready(function(){
 			url: "http://wonapi.maxleap.cn/1.0/mems/1",
 			data:json_put,
 			headers: {
-			     "x-ml-appid":$("#appid").val(),
+			     "X-ML-AppId":$("#appid").val(),
 			     "X-ML-Session-Token": $("#apptoken").val(),
 			     "Content-Type": "application/json"
 			},
