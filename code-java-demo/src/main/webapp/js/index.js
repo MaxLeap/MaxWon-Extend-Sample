@@ -4,8 +4,7 @@ $(function(){
     var sessionToken = $("#sessionToken").val();
 
     task({
-        //url : 'http://apiuat.maxapps.cn/1.0/mems/' + userId,
-        url : 'http://wonapi.maxleap.cn/1.0/mems/' + userId,
+        url : 'https://wonapi.maxleap.cn/1.0/mems/' + userId,
         header: {
             'X-ML-AppId':appId,
             'X-ML-Session-Token':sessionToken
