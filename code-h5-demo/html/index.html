@@ -7,7 +7,10 @@
 </head>
 
 <body>
-<fieldset>
+<div id="login-pannel">
+    <a href="https://www.maxwon.cn/login">点击登录</a>
+</div>
+<div id="profile-pannel" style="display: none;">
     <h1>
         会员信息
     </h1>
@@ -22,7 +25,8 @@
     <p>
         <a href="https://www.maxwon.cn/member/setting">设置</a>
     </p>
-</fieldset>
+</div>
+
 </body>
 <script type="text/javascript">
     window.onload = function () {
@@ -34,25 +38,23 @@
         var currentBalanceTag = document.getElementById("current-balance");
         var changeScoreTag = document.getElementById("changeScore");
         var nicknameInput = document.getElementById("nickname-input");
+        var login_pannel = document.getElementById("login-pannel");
+        var profile_pannel = document.getElementById("profile-pannel");
 
         initApp();
 
         //初始化页面
         function initApp() {
-            if (judgeIsLogin()) {
+            if (appInfo && appInfo.memId && appInfo.sessionToken) {
+                // 已经登录
+                login_pannel.style.display = "none";
+                profile_pannel.style.display = "block";
                 bindChangeScoreEvent();
                 getMemberInfoAndRender();
-
-            }
-        }
-
-        //判断是否已经登录
-        function judgeIsLogin() {
-            if (appInfo && appInfo.memId && appInfo.sessionToken) {
-                return true;
-            } else {
-                alert("请先登录");
-                return false;
+            }else{
+                // 未登录
+                login_pannel.style.display = "block";
+                profile_pannel.style.display = "none";
             }
         }
 
