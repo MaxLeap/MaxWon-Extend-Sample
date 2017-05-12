@@ -30,7 +30,7 @@
 </body>
 <script type="text/javascript">
     window.onload = function () {
-        var baseUrl = "//wonapi.maxleap.cn/1.0/"
+        var baseUrl = "https://wonapi.maxleap.cn/1.0/"
         var appInfo = getUrlQueryInfo();
         var memberId = appInfo.memId;
         var nicknameTag = document.getElementById("nickname");
@@ -45,6 +45,7 @@
 
         //初始化页面
         function initApp() {
+	        console.log("====> initApp appInfo:",appInfo);
             if (appInfo && appInfo.memId && appInfo.sessionToken) {
                 // 已经登录
                 login_pannel.style.display = "none";
@@ -60,13 +61,16 @@
 
         //获取会员信息并渲染页面
         function getMemberInfoAndRender() {
-            ajaxGet(baseUrl+"mems/" + memberId, {}, function (res) {
+        	var url = baseUrl+"mems/" + memberId;
+        	console.log("getMemberInfoAndRender, url:",url)
+            ajaxGet(url, {}, function (res) {
                 if (res) {
                     nicknameTag.innerText = res.nickName;
                     currentScoreTag.innerText = res.integral;
                     currentBalanceTag.innerText = (res.balance / 100).toFixed(2);
                 }
-            }, function (err) {
+            }, function (error) {
+            	console.log("getMemberInfoAndRender error:",error);
                 alert("获取会员信息失败");
             });
         }
@@ -101,10 +105,10 @@
         function getUrlQueryInfo() {
             var appId, /*appKey,*/ sessionToken, memId;
 
-            appId = getQueryString("appId");
+            appId = getQueryString("maxleap_appid");
             // appKey = getQueryString("apiKey");
-            sessionToken = getQueryString("sessionToken");
-            memId = getQueryString("userid");
+            sessionToken = getQueryString("maxleap_sessiontoken");
+            memId = getQueryString("maxleap_userid");
 
             return {
                 appId: appId,
@@ -115,10 +119,13 @@
 
             //获取地址栏参数
             function getQueryString(name) {
-                var prefix = 'maxleap_';
-                name = prefix+name;
+            	console.log("getQueryString window.location:",window.location);
+            	name = name.toLowerCase();
+            	var search = window.location.search.toLowerCase();
                 var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", 'i');
-                var result = window.location.search.substr(1).match(reg);
+                var result = search.substr(1).match(reg);
+                console.log("====> getQueryString name:",name, "result:",result);
+
                 if (result != null) {
                     return unescape(result[2]);
                 }
