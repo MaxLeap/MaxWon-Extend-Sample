@@ -5,10 +5,10 @@
 方式二, 直接用浏览器打开 index.html 文件.
 
 ## url query string:
-hide_navbar: 隐藏导航条, 默认不隐藏.
-maxleap_appid: app 的 Id
-maxleap_userid: 用户 Id
-maxleap_sessiontoken: 用户的鉴权令牌
+hide_navbar: 隐藏导航条, 默认不隐藏.   
+maxleap_appid: app 的 Id   
+maxleap_userid: 用户 Id   
+maxleap_sessiontoken: 用户的鉴权令牌   
 
 ## 模拟 h5, 显示导航条
 ```
