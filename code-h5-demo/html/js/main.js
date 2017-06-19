@@ -1,5 +1,5 @@
 var platform = getQueryString("platform");
-var isNative = platform =="ios" || platform =="android";
+var isNative = platform =="ios" || platform =="android";  // 是否在客户端中
 
 // 获取地址栏参数
 function getQueryString(name) {
@@ -19,7 +19,7 @@ function getQueryString(name) {
 // 设置 NavBar
 function setNavBar() {
     var return_uri = window.location.href;
-    if(platform=="ios" || platform=="android"){
+    if(isNative){
         $("#navbar").hide();   
     }else{
         $("#navbar").show(); 
@@ -30,12 +30,21 @@ function setLoginReturnUri() {
     if(isNative){
         $("#login-pannel a").attr("href","https://www.maxwon.cn/member");
     }else{
-        $("#login-pannel a").attr("href","http://h5custom.maxwon.cn/login?return_uri="+window.location.href);    
+        $("#login-pannel a").attr("href","http://h5custom.maxwon.cn/maxh5/login?return_uri="+window.location.href);    
     }
 }
 
-function bootstrap() {
+// 点击设置, 跳转到 Settings 页面
+function settingsOnClick() {
+    if(isNative){
+        window.location.href = "https://www.maxwon.cn/member/setting";
+    }else{
+        window.location.href = "http://h5custom.maxwon.cn/maxh5/member/settings";
+    }
+}
 
+
+function bootstrap() {
     var baseUrl = "https://wonapi.maxleap.cn/1.0/"
     var nicknameTag = document.getElementById("nickname");
     var currentScoreTag = document.getElementById("current-score");
