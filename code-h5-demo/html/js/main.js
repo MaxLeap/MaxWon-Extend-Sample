@@ -17,8 +17,8 @@ function getQueryString(name) {
 // 设置 NavBar
 function setNavBar() {
     var return_uri = window.location.href;
-    var hideNavBar = getQueryString("hide_navbar");
-    if(hideNavBar){
+    var platform = getQueryString("platform");
+    if(platform=="ios" || platform=="android"){
         $("#navbar").hide();   
     }else{
         $("#navbar").show(); 
