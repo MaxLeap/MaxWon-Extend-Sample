@@ -3,12 +3,23 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="format-detection" content="telephone=yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="wap-font-scale" content="no">
+    <title>Demo</title>
+    <script src="" ></script>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 </head>
 
 <body>
+<div id="navbar">
+    <a href="javascript:void(0)" onclick="javascript:history.go(-1);return false;" > 返回</a>  
+</div>
+<br/>
 <div id="login-pannel">
-    <a href="https://www.maxwon.cn/member">点击登录</a>
+    <a href="#">点击登录</a>
 </div>
 <div id="profile-pannel" style="display: none;">
     <h1>
@@ -29,7 +40,12 @@
 
 </body>
 <script type="text/javascript">
-    window.onload = function () {
+
+    function setLoginReturnUri(return_uri) {
+        $("#login-pannel a").attr("href","http://h5custom.maxwon.cn/login?return_uri="+return_uri)
+    }
+
+    function bootstrap() {
         var baseUrl = "https://wonapi.maxleap.cn/1.0/"
         var appInfo = getUrlQueryInfo();
         var memberId = appInfo.memId;
@@ -41,11 +57,14 @@
         var login_pannel = document.getElementById("login-pannel");
         var profile_pannel = document.getElementById("profile-pannel");
 
+        var currentUrl = window.location.href;
+        setLoginReturnUri(currentUrl);
+
         initApp();
 
         //初始化页面
         function initApp() {
-	        console.log("====> initApp appInfo:",appInfo);
+            console.log("====> initApp appInfo:",appInfo);
             if (appInfo && appInfo.memId && appInfo.sessionToken) {
                 // 已经登录
                 login_pannel.style.display = "none";
@@ -61,8 +80,8 @@
 
         //获取会员信息并渲染页面
         function getMemberInfoAndRender() {
-        	var url = baseUrl+"mems/" + memberId;
-        	console.log("getMemberInfoAndRender, url:",url)
+            var url = baseUrl+"mems/" + memberId;
+            console.log("getMemberInfoAndRender, url:",url)
             ajaxGet(url, {}, function (res) {
                 if (res) {
                     nicknameTag.innerText = res.nickName;
@@ -70,7 +89,7 @@
                     currentBalanceTag.innerText = (res.balance / 100).toFixed(2);
                 }
             }, function (error) {
-            	console.log("getMemberInfoAndRender error:",error);
+                console.log("getMemberInfoAndRender error:",error);
                 alert("获取会员信息失败");
             });
         }
@@ -119,9 +138,9 @@
 
             //获取地址栏参数
             function getQueryString(name) {
-            	console.log("getQueryString window.location:",window.location);
-            	name = name.toLowerCase();
-            	var search = window.location.search.toLowerCase();
+                console.log("getQueryString window.location:",window.location);
+                name = name.toLowerCase();
+                var search = window.location.search.toLowerCase();
                 var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", 'i');
                 var result = search.substr(1).match(reg);
                 console.log("====> getQueryString name:",name, "result:",result);
@@ -189,6 +208,10 @@
             return ajax(url, data, callback, errorCallBack, 'put');
         }
     }
+
+    $(document).ready(function(){
+      bootstrap();
+    });
 </script>
 
 </html>
