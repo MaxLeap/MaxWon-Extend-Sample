@@ -3,12 +3,22 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="format-detection" content="telephone=yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="wap-font-scale" content="no">
+    <title>Demo</title>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./js/main.js"></script>
 </head>
-
 <body>
+<!-- <div id="navbar">
+    <a href="javascript:void(0)" onclick="javascript:history.go(-1);return false;" > 返回</a>  
+</div>
+<br/> -->
 <div id="login-pannel">
-    <a href="https://www.maxwon.cn/member">点击登录</a>
+    <a href="#">点击登录</a>
 </div>
 <div id="profile-pannel" style="display: none;">
     <h1>
@@ -26,169 +36,5 @@
         <a href="https://www.maxwon.cn/member/setting">设置</a>
     </p>
 </div>
-
 </body>
-<script type="text/javascript">
-    window.onload = function () {
-        var baseUrl = "https://wonapi.maxleap.cn/1.0/"
-        var appInfo = getUrlQueryInfo();
-        var memberId = appInfo.memId;
-        var nicknameTag = document.getElementById("nickname");
-        var currentScoreTag = document.getElementById("current-score");
-        var currentBalanceTag = document.getElementById("current-balance");
-        var changeScoreTag = document.getElementById("changeScore");
-        var nicknameInput = document.getElementById("nickname-input");
-        var login_pannel = document.getElementById("login-pannel");
-        var profile_pannel = document.getElementById("profile-pannel");
-
-        initApp();
-
-        //初始化页面
-        function initApp() {
-	        console.log("====> initApp appInfo:",appInfo);
-            if (appInfo && appInfo.memId && appInfo.sessionToken) {
-                // 已经登录
-                login_pannel.style.display = "none";
-                profile_pannel.style.display = "block";
-                bindChangeScoreEvent();
-                getMemberInfoAndRender();
-            }else{
-                // 未登录
-                login_pannel.style.display = "block";
-                profile_pannel.style.display = "none";
-            }
-        }
-
-        //获取会员信息并渲染页面
-        function getMemberInfoAndRender() {
-        	var url = baseUrl+"mems/" + memberId;
-        	console.log("getMemberInfoAndRender, url:",url)
-            ajaxGet(url, {}, function (res) {
-                if (res) {
-                    nicknameTag.innerText = res.nickName;
-                    currentScoreTag.innerText = res.integral;
-                    currentBalanceTag.innerText = (res.balance / 100).toFixed(2);
-                }
-            }, function (error) {
-            	console.log("getMemberInfoAndRender error:",error);
-                alert("获取会员信息失败");
-            });
-        }
-
-        //绑定修改点击事件
-        function bindChangeScoreEvent() {
-            changeScoreTag.addEventListener("click", function (e) {
-                var value = nicknameInput.value.trim();
-
-                if (value !== '') {
-                    updateMemberInfo({
-                        nickName: value
-                    });
-                    nicknameInput.value = '';
-                }
-            });
-        }
-
-        //更新会员信息
-        function updateMemberInfo(info) {
-
-            ajaxPut(baseUrl+"mems/" + memberId, info, function () {
-                alert("修改成功");
-                nicknameTag.innerText = info.nickName;
-            }, function () {
-                alert("修改失败");
-            })
-        }
-
-
-        //获取地址栏信息
-        function getUrlQueryInfo() {
-            var appId, /*appKey,*/ sessionToken, memId;
-
-            appId = getQueryString("maxleap_appid");
-            // appKey = getQueryString("apiKey");
-            sessionToken = getQueryString("maxleap_sessiontoken");
-            memId = getQueryString("maxleap_userid");
-
-            return {
-                appId: appId,
-                // appKey: appKey,
-                sessionToken: sessionToken,
-                memId: memId
-            };
-
-            //获取地址栏参数
-            function getQueryString(name) {
-            	console.log("getQueryString window.location:",window.location);
-            	name = name.toLowerCase();
-            	var search = window.location.search.toLowerCase();
-                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", 'i');
-                var result = search.substr(1).match(reg);
-                console.log("====> getQueryString name:",name, "result:",result);
-
-                if (result != null) {
-                    return unescape(result[2]);
-                }
-                return null;
-            }
-        }
-
-        //ajax请求
-        function ajax(url, data, callback, errorCallBack, type) {
-            var xhr;
-
-            type = type || 'get';
-            if (window.ActiveXObject) {// code for IE5 and IE6
-                xhr = new ActiveXObject("Microsoft.XMLHTTP");
-            } else if (window.XMLHttpRequest) {
-                xhr = new XMLHttpRequest();
-            }
-            if (!xhr) {
-                return
-            }
-            xhr.onreadystatechange = function () {
-                //接受数据完毕
-                if (xhr.readyState === 4) {
-                    if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
-                        if (xhr.responseText) {
-                            try {
-                                callback(JSON.parse(xhr.responseText));
-                                return;
-                            } catch (e) {
-                                errorCallBack(e);
-                            }
-                        }
-                        callback(xhr.responseText);
-                    } else {
-                        errorCallBack(xhr.responseText);
-                    }
-                }
-            }
-            //simple
-            //xhr.addEventListener("load", function () {
-            // debugger
-            //});
-            //xhr.addEventListener("error", function () {
-            //   debugger
-            //});
-            xhr.open(type, url);
-            xhr.setRequestHeader("X-ML-AppId", appInfo.appId);
-            // xhr.setRequestHeader("X-ML-ApiKey", appInfo.appKey);
-            xhr.setRequestHeader("X-ML-Session-Token", appInfo.sessionToken);
-            xhr.setRequestHeader("Content-Type", "application/json");
-            xhr.send(JSON.stringify(data) || null);
-        }
-
-        //ajax get 请求
-        function ajaxGet(url, data, callback, errorCallBack) {
-            return ajax(url, data, callback, errorCallBack, 'get');
-        }
-
-        //ajax put 请求
-        function ajaxPut(url, data, callback, errorCallBack) {
-            return ajax(url, data, callback, errorCallBack, 'put');
-        }
-    }
-</script>
-
 </html>
