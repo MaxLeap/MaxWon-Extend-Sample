@@ -45,52 +45,72 @@
         $("#login-pannel a").attr("href","http://h5custom.maxwon.cn/login?return_uri="+return_uri)
     }
 
+    //获取地址栏参数
+    function getQueryString(name) {
+        console.log("getQueryString window.location:",window.location);
+        name = name.toLowerCase();
+        var search = window.location.search.toLowerCase();
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", 'i');
+        var result = search.substr(1).match(reg);
+        console.log("====> getQueryString name:",name, "result:",result);
+
+        if (result != null) {
+            return unescape(result[2]);
+        }
+        return null;
+    }
+
     function bootstrap() {
         var baseUrl = "https://wonapi.maxleap.cn/1.0/"
-        var appInfo = getUrlQueryInfo();
-        var memberId = appInfo.memId;
         var nicknameTag = document.getElementById("nickname");
         var currentScoreTag = document.getElementById("current-score");
         var currentBalanceTag = document.getElementById("current-balance");
         var changeScoreTag = document.getElementById("changeScore");
         var nicknameInput = document.getElementById("nickname-input");
-        var login_pannel = document.getElementById("login-pannel");
-        var profile_pannel = document.getElementById("profile-pannel");
 
         var currentUrl = window.location.href;
         setLoginReturnUri(currentUrl);
 
-        initApp();
+        var appId = getQueryString("maxleap_appid");
+        var sessionToken = getQueryString("maxleap_sessiontoken");
+        var memId = getQueryString("maxleap_userid");
 
-        //初始化页面
-        function initApp() {
-            console.log("====> initApp appInfo:",appInfo);
-            if (appInfo && appInfo.memId && appInfo.sessionToken) {
-                // 已经登录
-                login_pannel.style.display = "none";
-                profile_pannel.style.display = "block";
-                bindChangeScoreEvent();
-                getMemberInfoAndRender();
-            }else{
-                // 未登录
-                login_pannel.style.display = "block";
-                profile_pannel.style.display = "none";
-            }
+        if (memId && sessionToken) {
+            // 已经登录
+            $("#login-pannel").hide();
+            $("#profile-pannel").show();
+            $.ajaxSetup({
+                contentType : 'application/json',
+                headers:{
+                    "Content-Type": "application/json",
+                    "X-ML-AppId":appId,
+                    "X-ML-Session-Token":sessionToken,
+                }
+            });
+            bindChangeScoreEvent();
+            getMemberInfoAndRender();
+        }else{
+            // 未登录
+            $("#login-pannel").show();
+            $("#profile-pannel").hide();
         }
 
         //获取会员信息并渲染页面
         function getMemberInfoAndRender() {
-            var url = baseUrl+"mems/" + memberId;
-            console.log("getMemberInfoAndRender, url:",url)
-            ajaxGet(url, {}, function (res) {
-                if (res) {
-                    nicknameTag.innerText = res.nickName;
-                    currentScoreTag.innerText = res.integral;
-                    currentBalanceTag.innerText = (res.balance / 100).toFixed(2);
+            var url = baseUrl+"mems/" + memId;
+            $.ajax({
+                url, 
+                success:function (res) {
+                    if (res) {
+                        nicknameTag.innerText = res.nickName;
+                        currentScoreTag.innerText = res.integral;
+                        currentBalanceTag.innerText = (res.balance / 100).toFixed(2);
+                    }
+                }, 
+                error:function (error) {
+                    console.log("getMemberInfoAndRender error:",error);
+                    alert("获取会员信息失败");
                 }
-            }, function (error) {
-                console.log("getMemberInfoAndRender error:",error);
-                alert("获取会员信息失败");
             });
         }
 
@@ -110,102 +130,18 @@
 
         //更新会员信息
         function updateMemberInfo(info) {
-
-            ajaxPut(baseUrl+"mems/" + memberId, info, function () {
-                alert("修改成功");
-                nicknameTag.innerText = info.nickName;
-            }, function () {
-                alert("修改失败");
-            })
-        }
-
-
-        //获取地址栏信息
-        function getUrlQueryInfo() {
-            var appId, /*appKey,*/ sessionToken, memId;
-
-            appId = getQueryString("maxleap_appid");
-            // appKey = getQueryString("apiKey");
-            sessionToken = getQueryString("maxleap_sessiontoken");
-            memId = getQueryString("maxleap_userid");
-
-            return {
-                appId: appId,
-                // appKey: appKey,
-                sessionToken: sessionToken,
-                memId: memId
-            };
-
-            //获取地址栏参数
-            function getQueryString(name) {
-                console.log("getQueryString window.location:",window.location);
-                name = name.toLowerCase();
-                var search = window.location.search.toLowerCase();
-                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", 'i');
-                var result = search.substr(1).match(reg);
-                console.log("====> getQueryString name:",name, "result:",result);
-
-                if (result != null) {
-                    return unescape(result[2]);
+            $.ajax({
+                url: baseUrl+"mems/" + memId, 
+                data: JSON.stringify(info),
+                type:"PUT",
+                success:function (res) {
+                    alert("修改成功");
+                    nicknameTag.innerText = info.nickName;
+                }, 
+                error:function (error) {
+                   alert("修改失败");
                 }
-                return null;
-            }
-        }
-
-        //ajax请求
-        function ajax(url, data, callback, errorCallBack, type) {
-            var xhr;
-
-            type = type || 'get';
-            if (window.ActiveXObject) {// code for IE5 and IE6
-                xhr = new ActiveXObject("Microsoft.XMLHTTP");
-            } else if (window.XMLHttpRequest) {
-                xhr = new XMLHttpRequest();
-            }
-            if (!xhr) {
-                return
-            }
-            xhr.onreadystatechange = function () {
-                //接受数据完毕
-                if (xhr.readyState === 4) {
-                    if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
-                        if (xhr.responseText) {
-                            try {
-                                callback(JSON.parse(xhr.responseText));
-                                return;
-                            } catch (e) {
-                                errorCallBack(e);
-                            }
-                        }
-                        callback(xhr.responseText);
-                    } else {
-                        errorCallBack(xhr.responseText);
-                    }
-                }
-            }
-            //simple
-            //xhr.addEventListener("load", function () {
-            // debugger
-            //});
-            //xhr.addEventListener("error", function () {
-            //   debugger
-            //});
-            xhr.open(type, url);
-            xhr.setRequestHeader("X-ML-AppId", appInfo.appId);
-            // xhr.setRequestHeader("X-ML-ApiKey", appInfo.appKey);
-            xhr.setRequestHeader("X-ML-Session-Token", appInfo.sessionToken);
-            xhr.setRequestHeader("Content-Type", "application/json");
-            xhr.send(JSON.stringify(data) || null);
-        }
-
-        //ajax get 请求
-        function ajaxGet(url, data, callback, errorCallBack) {
-            return ajax(url, data, callback, errorCallBack, 'get');
-        }
-
-        //ajax put 请求
-        function ajaxPut(url, data, callback, errorCallBack) {
-            return ajax(url, data, callback, errorCallBack, 'put');
+            });
         }
     }
 
