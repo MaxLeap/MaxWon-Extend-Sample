@@ -1,5 +1,9 @@
 # Demo
 
+# 启动
+方式一, 启动静态文件服务器, 浏览器打开 url. 
+方式二, 直接用浏览器打开文件.
+
 ## url query string:
 hide_navbar: 隐藏导航条, 默认不隐藏.
 maxleap_appid: app 的 Id
