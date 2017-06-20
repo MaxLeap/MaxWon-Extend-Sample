@@ -30,7 +30,7 @@ function setLoginReturnUri() {
     if(isNative){
         $("#login-pannel a").attr("href","https://www.maxwon.cn/member");
     }else{
-        $("#login-pannel a").attr("href","http://h5custom.maxwon.cn/maxh5/login?return_uri="+window.location.href);    
+        $("#login-pannel a").attr("href","https://580d7be47e2c79000745a9d7.h5.maxwonapps.com/maxh5/login?return_uri="+window.location.href);    
     }
 }
 
@@ -39,7 +39,7 @@ function settingsOnClick() {
     if(isNative){
         window.location.href = "https://www.maxwon.cn/member/setting";
     }else{
-        window.location.href = "http://h5custom.maxwon.cn/maxh5/member/settings";
+        window.location.href = "https://580d7be47e2c79000745a9d7.h5.maxwonapps.com/maxh5/member/settings";
     }
 }
 
@@ -54,6 +54,7 @@ function bootstrap() {
 
     setNavBar();
 
+    // http://h5_extend_demo.maxdocker.cn/index.html?maxleap_appid=580d7be47e2c79000745a9d7&maxleap_userid=&maxleap_sessiontoken=&wx_openid="
     var appId = getQueryString("maxleap_appid");
     var sessionToken = getQueryString("maxleap_sessiontoken");
     var memId = getQueryString("maxleap_userid");
