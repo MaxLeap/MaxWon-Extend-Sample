@@ -5,7 +5,7 @@
 方式二, 直接用浏览器打开 index.html 文件.
 
 ## url query string:
-platform: 加载的容器类型 值为 ios/android/空
+platform: 加载的容器类型 值为 ios/android/空  
 maxleap_appid: app 的 Id   
 maxleap_userid: 用户 Id   
 maxleap_sessiontoken: 用户的鉴权令牌   

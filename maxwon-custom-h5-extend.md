@@ -139,16 +139,13 @@ function updateMemberInfo(info) {
 主要介绍在多平台下(iOS/Android/h5)下开发的一些常见区别及解决方案.
 
 ### 方案一
-不同平台独立开发.
-
-### 方案二
 跨平台开发, 使用 js 封装不同平台差异.
 
 #### 平台区分
 可从 url 的 query string 中的 platform 字段获得当前的平台信息(ios/android/空).  
 
 ```
-var platform = getQueryString("platform"); // 获取地址栏参数, 此函数实现见完整 demo 代码
+var platform = getQueryString("platform"); // 获取地址栏参数, 此函数实现见上文: 功能实现=>1、获取用户身份信息
 var isNative = platform =="ios" || platform =="android";  // 是否在客户端中
 ```
 
@@ -192,6 +189,10 @@ function settingsOnClick() {
 }
 
 ```
+
+### 方案二
+客户端 和 h5 独立开发, 代码不共享. 不同平台差异见方案一.    
+参考 [demo](https://github.com/MaxLeap/MaxWon-Extend-Sample/blob/master/code-h5-demo/html/): `index.html` 用在 h5 中, `native.html` 没有提供导航栏,用在客户端中.    
   
 ## 部署
 
