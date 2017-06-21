@@ -43,7 +43,7 @@
 <img src="https://publicfiles.maxleap.cn/h5_extend_demo/web/0621.setting2.png" alt="menu" width="600">
 
 6. 点击设置,跳转到 Maxwon 的用户设置页面. 在此页面点击返回也可正常返回到扩展页面.  
-<img src="https://publicfiles.maxleap.cn/h5_extend_demo/web/0621.setting.png" alt="menu" width="600">
+<img src="https://publicfiles.maxleap.cn/h5_extend_demo/web/0621.setting2.png" alt="menu" width="600">
 
 ## 功能实现
 
