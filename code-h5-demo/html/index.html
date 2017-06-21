@@ -9,17 +9,21 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="wap-font-scale" content="no">
     <title>Demo</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <script src="./js/main.js"></script>
 </head>
 
 <body>
-<div id="navbar">
-    <a href="javascript:void(0)" onclick="javascript:history.go(-1);return false;" > 返回</a>  
+<div id="navbar" class="navbar">
+    <div class="navbar-left">
+        <a class="demo-button-back" href="javascript:void(0)" onclick="javascript:history.go(-1);return false;" >< 返回</a>
+    </div>  
+    <div class="navbar-center">h5扩展demo</div>
 </div>
 <br/>
 <div id="login-pannel">
-    <a href="javascript:void(0)">点击登录</a>
+    <a class="demo-button" href="javascript:void(0)">点击登录</a>
 </div>
 <div id="profile-pannel" style="display: none;">
     <h1>
@@ -34,7 +38,7 @@
     <input type="text" id="nickname-input" placeholder="填写要修改的昵称"/>
     <button id="changeScore">修改</button>
     <p>
-        <a id="settings" href="javascript:void(0)" onClick="settingsOnClick()">设置</a>
+        <a class="demo-button" id="settings" href="javascript:void(0)" onClick="settingsOnClick()">设置</a>
     </p>
 </div>
 </body>

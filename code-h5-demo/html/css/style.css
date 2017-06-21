@@ -1,0 +1,39 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+.navbar{
+	position: fixed;
+	height:44px;
+	line-height: 44px;
+	background: #81C6B6;
+	text-align: center;
+	color:#fff;
+	width:100%;
+}
+.navbar-left{
+	position: absolute;
+	top:0;
+	left:12px;
+}
+.navbar-center{
+	display: inline-block;
+	margin:0 auto;
+}
+#login-pannel{
+	margin-top: 160px;
+	text-align: center;
+}
+.demo-button{
+	background: #81C6B6;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    letter-spacing: 0;
+    text-decoration: none;
+    padding: 6px 12px;
+}
+.demo-button-back{
+    text-decoration: none;
+    color: #fff;
+}
