@@ -12,16 +12,16 @@
 <img src="https://publicfiles.maxleap.cn/h5_extend_demo/native/1.png" alt="menu" width="600">
 
 2. 点击此菜单,打开扩展页面. 此处的导航由客户端提供.由于未登录,提示登录.  
-<img src="https://publicfiles.maxleap.cn/h5_extend_demo/native/2.1.png" alt="menu" width="600">
+<img src="https://publicfiles.maxleap.cn/h5_extend_demo/native/0621.login.png" alt="menu" width="600">
 
 3. 点击登录,跳转到 Maxwon 的登陆页面.  
 <img src="https://publicfiles.maxleap.cn/h5_extend_demo/native/3.png" alt="menu" width="600">
 
 4. 登录完成后,显示用户的信息.  
-<img src="https://publicfiles.maxleap.cn/h5_extend_demo/native/4.1.png" alt="menu" width="600">
+<img src="https://publicfiles.maxleap.cn/h5_extend_demo/native/0621.setting.png" alt="menu" width="600">
 
 5. 在输入框中输入新的昵称,点击修改按钮,可以修改会员昵称,查看效果. 
-<img src="https://publicfiles.maxleap.cn/h5_extend_demo/native/5.1.png" alt="menu" width="600">
+<img src="https://publicfiles.maxleap.cn/h5_extend_demo/native/0621.setting2.png" alt="menu" width="600">
 
 6. 点击设置,跳转到 Maxwon 的用户设置页面. 在此页面点击返回也可正常返回到扩展页面.  
 <img src="https://publicfiles.maxleap.cn/h5_extend_demo/native/6.png" alt="menu" width="600">
@@ -31,19 +31,19 @@
 <img src="https://publicfiles.maxleap.cn/h5_extend_demo/web/1.png" alt="menu" width="600">
 
 2. 点击此菜单,打开扩展页面. 点击返回可返回上一页(此处的导航由 h5 页面自行提供). 由于未登录,提示登录.  
-<img src="https://publicfiles.maxleap.cn/h5_extend_demo/web/2.png" alt="menu" width="600">
+<img src="https://publicfiles.maxleap.cn/h5_extend_demo/web/0621.login.png" alt="menu" width="600">
 
 3. 点击登录,跳转到 Maxwon 的登陆页面.  
 <img src="https://publicfiles.maxleap.cn/h5_extend_demo/web/3.png" alt="menu" width="600">
 
 4. 登录完成后,自动回到我们的扩展页面.  
-<img src="https://publicfiles.maxleap.cn/h5_extend_demo/web/4.png" alt="menu" width="600">
+<img src="https://publicfiles.maxleap.cn/h5_extend_demo/web/0621.setting.png" alt="menu" width="600">
 
 5. 修改用户名,查看效果.   
-<img src="https://publicfiles.maxleap.cn/h5_extend_demo/web/5.png" alt="menu" width="600">
+<img src="https://publicfiles.maxleap.cn/h5_extend_demo/web/0621.setting2.png" alt="menu" width="600">
 
 6. 点击设置,跳转到 Maxwon 的用户设置页面. 在此页面点击返回也可正常返回到扩展页面.  
-<img src="https://publicfiles.maxleap.cn/h5_extend_demo/web/6.png" alt="menu" width="600">
+<img src="https://publicfiles.maxleap.cn/h5_extend_demo/web/0621.setting.png" alt="menu" width="600">
 
 ## 功能实现
 
