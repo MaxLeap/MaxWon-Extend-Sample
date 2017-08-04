@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Demo</title>
+</head>
+
+<body>
+    <h3>控制台自定义菜单页面</h3>
+    <ul>
+        <li>AppID: <b id="maxwon_appid"></b></li>
+        <li>SessionToken: <b id="maxwon_sessiontoken"></b></li>
+    </ul>
+    <script>
+        var parseQueryString = function (str) {
+            var reg = /(([^?&=]+)(?:=([^?&=]*))*)/g;
+            var result = {};
+            var match;
+            var key;
+            var value;
+            while (match = reg.exec(str)) {
+                key = match[2];
+                value = match[3] || "";
+                result[key] = decodeURIComponent(value);
+            }
+            return result;
+        };
+        var info = parseQueryString(window.location.href);
+        window.maxwon_appid.innerText = info.maxwon_appid;
+        window.maxwon_sessiontoken.innerText = info.maxwon_sessiontoken;
+    </script>
+</body>
+
+</html>
