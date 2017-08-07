@@ -5,7 +5,10 @@
 此 demo 实现了获取账号SessionToken的功能, 并介绍了多平台开发的一些注意事项.
 
 ## 主要效果
-
+进入自定义模块后，显示**APP**的名称
+![](https://publicfiles.maxleap.cn/console_extend_demo/6.png)
+修改**APP**的名称
+![](https://publicfiles.maxleap.cn/console_extend_demo/7.png)
 ## 开发步骤
 1. 准备一个目录，**目录名称必须为html**，把所有的网站文件拷贝到目录 html 下面，主页文件名必须为 `index.html`。
 2. 在你的html中，通过 js 获取地址栏中的URL参数,拿到当前用户的鉴权信息, 访问 Maxwon API 时需要用到。
@@ -32,6 +35,47 @@
 
     // 获取 maxwon_appid
     var maxwon_sessiontoken = info.maxwon_sessiontoken;
+
+    var url = baseUrl + "/apps/" + maxwon_appid
+
+    //获取会员信息并渲染页面
+    function getMemberInfoAndRender() {
+        $.ajax({
+            url: url,
+            method: "GET",
+            headers: {
+                "X-ML-AppId": maxwon_appid,
+                "X-ML-Session-Token": maxwon_sessiontoken,
+            },
+            success: function (res) {
+                var appName = res.ama.appInfo.appName;
+                $("#appName").val(appName);
+            }
+        });
+    }
+    getMemberInfoAndRender();
+
+    //绑定事件
+    $("#edit").click(function () {
+        var newName = $("#appName").val();
+        $.ajax({
+            url: url,
+            method: "PUT",
+            data:JSON.stringify({
+                "name": newName,
+                "ama": { "appInfo": { "appName": newName } }
+            }),
+            dataType: "json",
+            contentType: "application/json",
+            headers: {
+                "X-ML-AppId": maxwon_appid,
+                "X-ML-Session-Token": maxwon_sessiontoken,
+            },
+            success: function (res) {
+                alert("修改成功！")
+            }
+        });
+    });
     ```
 2. 用 zip 工具打包, **包名必须是 html.zip**。
     ```shell
