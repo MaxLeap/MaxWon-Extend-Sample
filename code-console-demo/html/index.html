@@ -6,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Demo</title>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
-    <h3>控制台自定义菜单页面</h3>
+    <h3>账号信息</h3>
     <ul>
-        <li>AppID: <b id="maxwon_appid"></b></li>
-        <li>SessionToken: <b id="maxwon_sessiontoken"></b></li>
+        <li>应用名: <input type="text" id="appName" /></li>
     </ul>
+    <button id="edit">修改应用名称</button>
     <script>
         // 工具函数, 获取地址栏参数
         var parseQueryString = function (str) {
@@ -30,8 +31,48 @@
             return result;
         };
         var info = parseQueryString(window.location.href);
-        window.maxwon_appid.innerText = info.maxwon_appid;
-        window.maxwon_sessiontoken.innerText = info.maxwon_sessiontoken;
+        var maxwon_appid = info.maxwon_appid;
+        var maxwon_sessiontoken = info.maxwon_sessiontoken;
+
+        var url = "http://wwwuat.maxwon.cn/1.0/apps/" + maxwon_appid
+
+        //获取会员信息并渲染页面
+        function getMemberInfoAndRender() {
+            $.ajax({
+                url: url,
+                method: "GET",
+                headers: {
+                    "X-ML-AppId": maxwon_appid,
+                    "X-ML-Session-Token": maxwon_sessiontoken,
+                },
+                success: function (res) {
+                    var appName = res.ama.appInfo.appName;
+                    $("#appName").val(appName);
+                }
+            });
+        }
+        getMemberInfoAndRender();
+
+        $("#edit").click(function () {
+            var newName = $("#appName").val();
+            $.ajax({
+                url: url,
+                method: "PUT",
+                data:JSON.stringify({
+                    "name": newName,
+                    "ama": { "appInfo": { "appName": newName } }
+                }),
+                dataType: "json",
+                contentType: "application/json",
+                headers: {
+                    "X-ML-AppId": maxwon_appid,
+                    "X-ML-Session-Token": maxwon_sessiontoken,
+                },
+                success: function (res) {
+                    alert("修改成功！")
+                }
+            });
+        });
     </script>
 </body>
 
