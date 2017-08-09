@@ -94,3 +94,7 @@
 9. 进入配置平台=>配置管理端=>配置菜单项，找到你准备要添加到的菜单，点击编辑=>创建子菜单，填入刚刚得到的访问域名，点击确定后保存菜单
     ![](https://publicfiles.maxleap.cn/console_extend_demo/5.png)
 10. 现在进入到应用管理界面，即可看到已经创建好的自定义菜单
+
+
+## 样例完整 Demo
+[H5 完整项目](https://github.com/MaxLeap/MaxWon-Extend-Sample/blob/master/code-console-demo/html/)
