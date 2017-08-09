@@ -10,11 +10,13 @@
 </head>
 
 <body>
-    <h3>账号信息</h3>
-    <ul>
-        <li>应用名: <input type="text" id="appName" /></li>
-    </ul>
-    <button id="edit">修改应用名称</button>
+    <div id="login-info">
+        <h3>账号信息</h3>
+        <ul>
+            <li>应用名: <input type="text" id="appName" /></li>
+        </ul>
+        <button id="edit">修改应用名称</button>
+    </div>
     <script>
         // 工具函数, 获取地址栏参数
         var parseQueryString = function (str) {
@@ -51,7 +53,11 @@
                 }
             });
         }
-        getMemberInfoAndRender();
+        if (maxwon_appid && maxwon_sessiontoken) {
+            getMemberInfoAndRender();
+        } else {
+            $("#login-info").html("您没有登录系统，请登录！")
+        }
 
         //绑定事件
         $("#edit").click(function () {
@@ -59,7 +65,7 @@
             $.ajax({
                 url: url,
                 method: "PUT",
-                data:JSON.stringify({
+                data: JSON.stringify({
                     "name": newName,
                     "ama": { "appInfo": { "appName": newName } }
                 }),
