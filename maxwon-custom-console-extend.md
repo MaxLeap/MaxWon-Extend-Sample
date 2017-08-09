@@ -11,6 +11,9 @@
 2. 修改**APP**的名称 <br/>
 ![](https://publicfiles.maxleap.cn/console_extend_demo/7.png)
 
+3. 直接访问自定义模块的效果 <br/>
+![](https://publicfiles.maxleap.cn/console_extend_demo/8.png)
+
 ## 开发步骤
 1. 准备一个目录，**目录名称必须为html**，把所有的网站文件拷贝到目录 html 下面，主页文件名必须为 `index.html`。
 2. 在你的html中，通过 js 获取地址栏中的URL参数,拿到当前用户的鉴权信息, 访问 Maxwon API 时需要用到。
@@ -55,7 +58,13 @@
             }
         });
     }
-    getMemberInfoAndRender();
+
+    //判断是否在APP内
+    if (maxwon_appid && maxwon_sessiontoken) {
+        getMemberInfoAndRender();
+    } else {
+        $("#login-info").html("您没有登录系统，请登录！")
+    }
 
     //绑定事件
     $("#edit").click(function () {
