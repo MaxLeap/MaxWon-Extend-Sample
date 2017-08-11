@@ -1,0 +1,207 @@
+.theme-navbar-color {
+background-color:#52a31f!important;
+color:#ffffff!important;
+}
+.theme-navbar-color-integral{
+background-color:#52a31f!important;
+color:#fff!important;
+}
+.theme-navbar-color .navbar_left *,
+.theme-navbar-color .navbar_right *,
+.theme-navbar-color .navbar_right .link i.icon-large,
+.theme-navbar-color .navbar_right .link i,
+.theme-navbar-color .navbar_left_color i,
+.theme-navbar-color .navbar_right_color i,
+.theme-navbar-color .navbar_left_color *,
+.theme-navbar-color .navbar_right_color *
+{
+color:#ffffff!important;
+}
+.theme-navbar-before-color:first-child:before{
+background-color:#52a31f!important;
+}
+/**tabbar 相关颜色**/
+.theme-toolbar-color{
+color:#ffffff;
+background-color:#52a31f;
+}
+.theme-toolbar-color .tab-link.theme .theme-icon{
+color:#fffc00;
+}
+.theme-toolbar-color .tab-link.theme .tabbar-label{
+color:#fffc00;
+}
+
+.theme-color{
+color:#0076ff!important;
+}
+.theme-navbar-color .navbar_right .theme-color{
+    color:#52a31f!important;
+}
+.theme-border{
+border:1px solid #52a31f!important;
+}
+.theme-border-color {
+border-color:   #52a31f!important;
+}
+.theme-button-color {
+color:#27ae60;
+}
+.theme-toolbar-color .tab-link.active{
+color:#52a31f;
+}
+.swiper-slide.act{
+    color:#52a31f;
+}
+
+.theme-toolbar-bg-color{
+background-color:#0076ff;
+}
+/*底部工具栏高亮*/
+.theme-toolbar-color .tab-link.theme{
+color:#52a31f;
+}
+.theme-highlight{
+color:#0076ff!important;
+}
+/**可操作文字颜色**/
+.theme-action{
+color:#52a31f!important;
+}
+/**获取验证码颜色**/
+.theme-code-bg{
+background-color:#0076ff!important;
+}
+.theme-code-color{
+color:#0076ff!important;
+}
+.toolbar-inner>.tab-link.active .theme-icon{
+background-color:#52a31f;
+}
+.content-block.secondary .buttons-row .tab-link.active{
+color: #0076ff;
+border-color:#0076ff;
+}
+.button{
+background-color:#27ae60;
+border-color:#27ae60;
+}
+.button.button-fill{
+background-color:#27ae60;
+border-color:#27ae60;
+}
+
+.button.button-big{
+background-color:#27ae60;
+border-color:#27ae60;
+}
+.button.button-bar{
+background-color:#52a31f;
+border-color:#52a31f;
+}
+.button.active-state {
+background-color:#27ae60;
+border-color:#27ae60;
+}
+
+.sort-item>.item-content .item-inner .col-50.active{
+color: #0076ff;
+}
+/*选项卡滑动*/
+.buttons-row .button.active{
+color: #52a31f !important;
+border-bottom:2px solid #52a31f !important;
+}
+
+.buttons-row .button.active-state{
+color: #0076ff !important;
+border-bottom:2px solid #0076ff !important;
+}
+
+/*商品评论*/
+.content-block.secondary .buttons-row .button.active {
+color:  !important;
+border-bottom:2px solid  !important;
+}
+
+/*商品分类*/
+
+.sort-item>.item-content .item-inner .col-50.active{
+color:#52a31f;
+}
+
+.content-block.secondary .buttons-row .button.active-state{
+color: #52a31f;
+border-bottom:2px solid #52a31f;
+}
+
+/*书签*/
+.theme-bookmark {
+border-top: 22px solid #52a31f;
+border-bottom: 23px solid #52a31f;
+}
+
+/*角标*/
+.theme-small-subscript {
+border-top: 18px solid #52a31f;
+border-left: 18px solid #52a31f;
+}
+
+.theme-big-subscript {
+border-top: 30px solid #52a31f;
+border-left: 30px solid #52a31f;
+}
+
+/*switch*/
+.label-switch input[type=checkbox]:checked+.checkbox {
+background:#52a31f;
+}
+/*checbox and radio*/
+
+label.label-checkbox input[type=checkbox]:checked+.item-media i.icon-form-checkbox, label.label-checkbox input[type=radio]:checked+.item-media i.icon-form-checkbox {
+background:#52a31f;
+}
+
+/*论坛已关注按钮背景色*/
+.theme-follow-bg-color {
+    background-color:#ffffff!important;
+}
+/*带金券二级导航色*/
+.secondaryNavigationBarFC-theme-action{
+color:!important;
+}
+/*渐变*/
+.gradient {
+height:140px;
+background: -moz-linear-gradient(top, #52a31f 0%, #ffffff 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#52a31f), color-stop(100%,#ffffff));
+background: -webkit-linear-gradient(top, #52a31f 0%,#ffffff 100%);
+background: -o-linear-gradient(top, #52a31f 0%,#ffffff 100%);
+background: -ms-linear-gradient(top, #52a31f 0%,#ffffff 100%);
+background: linear-gradient(to bottom, #52a31f 0%,#ffffff 100%);
+}
+.buttons-row .tab-link.active,.weui-navbar .weui-bar__item_on,.operable-text{
+color:!important;
+border-color: !important;
+}
+/**/
+.hiddenText{
+width:180px;
+text-align:right;
+white-space:nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+.hiddenOtherText{
+width:200px;
+white-space:nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+ /*论坛*/
+.theme-top-color{
+ color:#0076ff!important;
+}
+.theme-top-color{
+border:1px solid  #0076ff!important;
+}

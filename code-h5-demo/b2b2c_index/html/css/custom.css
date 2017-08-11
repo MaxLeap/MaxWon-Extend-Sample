@@ -1,0 +1,22 @@
+.views{
+	height: 100%;
+}
+
+.view{
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+#header{
+	position: relative!important;
+}
+
+.toolbar.tabbar{
+	position: relative!important;
+} 
+
+.custom-content{
+	overflow-y: scroll;	
+	flex: 1
+}
