@@ -1,0 +1,38 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	background-color: #FFFFFF;
+}
+
+#wrapper {
+	position: absolute;
+	z-index: 1;
+	top: 0px;
+	bottom: 0px;
+	left: 0;
+	width: 100%;
+	overflow: hidden;
+}
+
+#photo {
+	background-image: url();
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	width: 118px;
+	height: 118px;
+	background-color: #fff;
+	border: 3px solid #52A31F;
+	border-radius: 200px;
+}
+
+#divEnter {
+	position: absolute;
+	z-index: 2;
+	top: 0px;
+	bottom: 0px;
+	left: 0;
+	width: 100%;
+	overflow: hidden;
+	background-color: #FFFFFF;
+}
