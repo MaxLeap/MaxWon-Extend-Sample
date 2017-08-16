@@ -303,6 +303,7 @@ function toContent() {
             toIscrollRefresh();
         }
     });
+    //banner
     $.ajax({
         type: 'get',
         url: "https://wonapi.maxleap.cn/1.0/mall/banner/client?where=%7B%22status%22%3A1%2C%22type%22%3A2%7D",
@@ -314,30 +315,30 @@ function toContent() {
         success: function (data) {
             var strGD = "";
             var url = "";
-            var parsedJson = eval(data);
-            $.each(parsedJson.sort(), function (index, item) {
+            console.log("banners:",data);
+            // 遍历数据
+            $.each(data.sort(), function (index, item) {
                 strGD = "<img width='100%' src='" + item.bannerImageUrl + "'>";
                 if (item.product) {
                     url = "https://www.maxwon.cn/mall/product/" + item.product.id
                 }
-                ;
                 if (item.category) {
                     url = "https://www.maxwon.cn/mall/category/" + item.category.id
                 }
-                ;
                 if (item.shop) {
                     url = "https://www.maxwon.cn/mall/" + item.shop.id
                 }
-                ;
                 if (item.custom) {
                     url = item.custom.urlStr
                 }
             });
             document.getElementById("banner_center").innerHTML = strGD;
             document.getElementById("banner_center").addEventListener('tap', function () {
-                window.location.href = url
+                // 跳转到自定义协议
+                window.location.href = url;
             }, false);
-            toIscrollRefresh()
+
+            toIscrollRefresh();
         }
     });
     var imgXdpWidth = 108;
@@ -408,25 +409,29 @@ function toContent() {
             'X-ML-APIKey': APIKey
         },
         success: function (data) {
+            console.log("products:",data);
+
+            // 遍历数据, 构造 html dom 字符串
             var strList = "";
-            var arrID = new Array();
-            var parsedJson = eval(data);
-            $.each(parsedJson.results, function (index, item) {
+            $.each(data.results, function (index, item) {
                 var id = "btnPrdTJ_" + item.id;
-                arrID.push(id + "||https://www.maxwon.cn/mall/product/" + item.id);
-                var priceOld = (item.originalPrice * 0.01).toFixed(2);
-                var priceNow = (item.price * 0.01).toFixed(2);
+                var priceOld = (item.originalPrice * 0.01).toFixed(2);  // 旧价格
+                var priceNow = (item.price * 0.01).toFixed(2);  //当前价格
                 strList += "<table width='100%' border='0' cellspacing='0' cellpadding='0' style='background-color:#f9f9f9'><tbody><tr><td class='tdBj_tj' colspan='2' align='center' bgcolor='#FFFFFF'><img src='" + item.coverIcon + "' width='52%' id='" + id + "'></td></tr><tr><td width='72%' id='prd" + item.id + "' class='txtPrdPriceNow'>￥：" + priceNow + "</td><td class='txtPrdSales'>销量：" + item.baseSaleCount + "</td></tr><tr><td class='txtPrdPriceOld'>" + (priceOld == priceNow ? "" : "￥：" + priceOld) + "</td><td align='right' style='padding-right:6px'>" + (item.mall.type == 1 ? "<div class='inputzy'>自营</div>" : "") + "</td></tr><tr><td class='txtPrdTitle1'>" + item.title + "</td><td align='right' style='padding-right:6px'><div class='inputMallname'>" + item.mall.name + "</div></td></tr></tbody></table>"
             });
+            // 添加到 dom
             document.getElementById("listPrdTJ").innerHTML = strList;
-            for (x in arrID) {
-                var spt = arrID[x].split("||");
-                document.getElementById(spt[0]).tig = spt[1];
-                document.getElementById(spt[0]).addEventListener('tap', function () {
+
+            // 绑定点击事件,根据自定义协议跳转
+            data.results.map(function (item) {
+                var id = "btnPrdTJ_" + item.id;
+                document.getElementById(id).tig = "https://www.maxwon.cn/mall/product/" + item.id;
+                document.getElementById(id).addEventListener('tap', function () {
                     window.location.href = this.tig
-                }, false)
-            }
-            toIscrollRefresh()
+                }, false);
+            });
+
+            toIscrollRefresh();
         }
     });
     $.ajax({
